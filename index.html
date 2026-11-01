@@ -1,0 +1,2326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mohammed Shakib Hossain | Usable Security and Privacy Researcher</title>
+    <meta name="description"
+        content="MSc candidate in Computer Science and Engineering at BRAC University. Research in HCI, usable privacy and security, human-centered security, human factors, and authentication.">
+    <meta name="author" content="Mohammed Shakib Hossain">
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" content="#EAF2F8">
+
+    <!-- Link preview when the page is shared. DUMMY ADDRESS: change addshakib80.github.io to your real site address.
+       Add a 1200 x 630 image at assets/og-image.jpg to show a picture in the preview. -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Mohammed Shakib Hossain | Usable Security and Privacy Researcher">
+    <meta property="og:description"
+        content="Research in HCI, usable privacy and security, human-centered security, and authentication. MSc candidate at BRAC University.">
+    <meta property="og:url" content="https://addshakib80.github.io/">
+    <meta property="og:image" content="https://addshakib80.github.io/assets/og-image.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%232F7FD0'/%3E%3Cstop offset='1' stop-color='%231FA6A0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='url(%23g)'/%3E%3Ccircle cx='32' cy='23' r='8.5' fill='%23fff'/%3E%3Cpath d='M32 34c-6.6 0-11 4.2-11 9.6V50a2 2 0 0 0 2 2h18a2 2 0 0 0 2-2v-6.4C43 38.2 38.6 34 32 34z' fill='%23fff'/%3E%3Ccircle cx='32' cy='42' r='2.7' fill='%231E8FB8'/%3E%3Crect x='30.9' y='42.5' width='2.2' height='6' rx='1.1' fill='%231E8FB8'/%3E%3C/svg%3E"> -->
+    <link rel="icon" href="components/logo-mark2.svg" type="image/svg+xml">
+
+
+
+
+    <!-- Structured data so search engines understand this is an academic profile.
+       Add your Google Scholar and ORCID addresses to "sameAs" when you have them. -->
+    <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Mohammed Shakib Hossain",
+    "jobTitle": "MSc Candidate, Computer Science and Engineering",
+    "affiliation": { "@type": "CollegeOrUniversity", "name": "BRAC University" },
+    "email": "mailto:addshakib@gmail.com",
+    "knowsAbout": ["Usable security and privacy", "Human-computer interaction", "Human-centered security", "Authentication"],
+    "sameAs": ["https://github.com/addshakib80", "https://linkedin.com/in/shakib80"]
+  }
+  </script>
+
+    <!-- Applies the saved theme before the page paints so nothing flashes. Please leave this in. -->
+    <script>
+        (function () {
+            var root = document.documentElement;
+            var theme = null;
+            try { theme = localStorage.getItem("theme"); } catch (e) { }
+            if (theme !== "light" && theme !== "dark") {
+                theme = (window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches) ? "dark" : "light";
+            }
+            if (theme === "dark") { root.classList.add("dark"); }
+            root.classList.add("js");
+        })();
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS via the official Play CDN. No installation needed. -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        paper: "rgb(var(--c-paper) / <alpha-value>)",
+                        surface: "rgb(var(--c-surface) / <alpha-value>)",
+                        ink: "rgb(var(--c-ink) / <alpha-value>)",
+                        muted: "rgb(var(--c-muted) / <alpha-value>)",
+                        line: "rgb(var(--c-line) / <alpha-value>)",
+                        accent: "rgb(var(--c-accent) / <alpha-value>)",
+                        "on-accent": "rgb(var(--c-on-accent) / <alpha-value>)",
+                        soft: "rgb(var(--c-soft) / <alpha-value>)",
+                        warn: "rgb(var(--c-warn) / <alpha-value>)",
+                        "warn-soft": "rgb(var(--c-warn-soft) / <alpha-value>)"
+                    },
+                    fontFamily: {
+                        sans: ["Inter", "ui-sans-serif", "system-ui", "-apple-system", "Segoe UI", "sans-serif"],
+                        display: ['"Source Serif 4"', "Georgia", '"Times New Roman"', "serif"]
+                    },
+                    maxWidth: { page: "90rem" }
+                }
+            }
+        };
+    </script>
+
+    <!-- Custom styles: color tokens, scroll-snapping, animations, components -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+
+<body class="bg-paper font-sans text-[1rem] leading-relaxed text-ink antialiased">
+
+    <!-- Icon library. Icons are used with: <svg class="i" width="18" height="18" aria-hidden="true"><use href="#i-mail"/></svg>
+       Brand icons use class "i b" and ids that start with b-. -->
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+        <symbol id="i-award" viewBox="0 0 24 24">
+            <circle cx="12" cy="8" r="6" />
+            <path d="M15.48 12.89 17 22l-5-3-5 3 1.52-9.11" />
+        </symbol>
+        <symbol id="i-cap" viewBox="0 0 24 24">
+            <path d="M22 10 12 5 2 10l10 5 10-5Z" />
+            <path d="M6 12v5c3 3 9 3 12 0v-5" />
+            <path d="M22 10v6" />
+        </symbol>
+        <symbol id="i-chart" viewBox="0 0 24 24">
+            <path d="M3 3v18h18" />
+            <path d="M8 17V9M13 17V5M18 17v-6" />
+        </symbol>
+        <symbol id="i-chat" viewBox="0 0 24 24">
+            <path d="M14 9a2 2 0 0 1-2 2H6l-4 4V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2z" />
+            <path d="M18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1" />
+        </symbol>
+        <symbol id="i-copy" viewBox="0 0 24 24">
+            <rect x="9" y="9" width="13" height="13" rx="2" />
+            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+        </symbol>
+        <symbol id="i-download" viewBox="0 0 24 24">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+            <path d="m7 10 5 5 5-5" />
+            <path d="M12 15V3" />
+        </symbol>
+        <symbol id="i-eye" viewBox="0 0 24 24">
+            <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z" />
+            <circle cx="12" cy="12" r="3" />
+        </symbol>
+        <symbol id="i-fingerprint" viewBox="0 0 24 24">
+            <path d="M12 10a2 2 0 0 0-2 2c0 1.02-.1 2.51-.26 4" />
+            <path d="M14 13.12c0 2.38 0 6.38-1 8.88" />
+            <path d="M17.29 21.02c.12-.6.43-2.3.5-3.02" />
+            <path d="M2 12a10 10 0 0 1 18-6" />
+            <path d="M2 16h.01" />
+            <path d="M21.8 16c.2-2 .131-5.354 0-6" />
+            <path d="M5 19.5C5.5 18 6 15 6 12a6 6 0 0 1 .34-2" />
+            <path d="M8.65 22c.21-.66.45-1.32.57-2" />
+            <path d="M9 6.8a6 6 0 0 1 9 5.2v2" />
+        </symbol>
+        <symbol id="i-flask" viewBox="0 0 24 24">
+            <path d="M10 2v7.5L4.5 19a2 2 0 0 0 1.7 3h11.6a2 2 0 0 0 1.7-3L14 9.5V2" />
+            <path d="M8.5 2h7" />
+            <path d="M7 16h10" />
+        </symbol>
+        <symbol id="i-gauge" viewBox="0 0 24 24">
+            <path d="m12 14 4-4" />
+            <path d="M3.34 19a10 10 0 1 1 17.32 0" />
+        </symbol>
+        <symbol id="i-mail" viewBox="0 0 24 24">
+            <rect x="2" y="4" width="20" height="16" rx="2" />
+            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+        </symbol>
+        <symbol id="i-map-pin" viewBox="0 0 24 24">
+            <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+            <circle cx="12" cy="10" r="3" />
+        </symbol>
+        <symbol id="i-moon" viewBox="0 0 24 24">
+            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+        </symbol>
+        <symbol id="i-pen" viewBox="0 0 24 24">
+            <path d="M17 3a2.85 2.85 0 0 1 4 4L7.5 20.5 2 22l1.5-5.5Z" />
+            <path d="m15 5 4 4" />
+        </symbol>
+        <symbol id="i-pointer" viewBox="0 0 24 24">
+            <path d="m4 4 7.07 17 2.51-7.39L21 11.07z" />
+        </symbol>
+        <symbol id="i-shield" viewBox="0 0 24 24">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" />
+            <rect x="9" y="11" width="6" height="5" rx="1" />
+            <path d="M10 11V9a2 2 0 0 1 4 0v2" />
+        </symbol>
+        <symbol id="i-star" viewBox="0 0 24 24">
+            <path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z" />
+        </symbol>
+        <symbol id="i-sun" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="4" />
+            <path
+                d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
+        </symbol>
+        <symbol id="i-trophy" viewBox="0 0 24 24">
+            <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6" />
+            <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18" />
+            <path d="M4 22h16" />
+            <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22" />
+            <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22" />
+            <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z" />
+        </symbol>
+        <symbol id="i-user" viewBox="0 0 24 24">
+            <circle cx="12" cy="8" r="4" />
+            <path d="M4 21a8 8 0 0 1 16 0" />
+        </symbol>
+        <symbol id="i-users" viewBox="0 0 24 24">
+            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+            <circle cx="9" cy="7" r="4" />
+            <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+        </symbol>
+        <symbol id="i-vr" viewBox="0 0 24 24">
+            <path d="M2 8a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-4l-2-3h-4l-2 3H4a2 2 0 0 1-2-2z" />
+            <circle cx="7.5" cy="12" r="1" />
+            <circle cx="16.5" cy="12" r="1" />
+        </symbol>
+        <symbol id="b-facebook" viewBox="0 0 24 24">
+            <path
+                d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z" />
+        </symbol>
+        <symbol id="b-github" viewBox="0 0 24 24">
+            <path
+                d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+        </symbol>
+        <symbol id="b-google-scholar" viewBox="0 0 24 24">
+            <path
+                d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z" />
+        </symbol>
+        <symbol id="b-linkedin" viewBox="0 0 24 24">
+            <path
+                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+        </symbol>
+        <symbol id="b-orcid" viewBox="0 0 24 24">
+            <path
+                d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .947.431.947.947s-.422.947-.947.947a.95.95 0 0 1-.947-.947c0-.525.422-.947.947-.947zm-.722 3.038h1.444v10.041H6.647V7.416zm3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.025 0 2.578-2.016 5.025-5.325 5.025h-3.919V7.416zm1.444 1.303v7.444h2.297c3.272 0 4.022-2.484 4.022-3.722 0-2.016-1.284-3.722-4.097-3.722h-2.222z" />
+        </symbol>
+        <symbol id="b-x" viewBox="0 0 24 24">
+            <path
+                d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z" />
+        </symbol>
+
+
+
+        <!-- Human-AI Interaction: Conversation with AI indicator -->
+        <symbol id="i-human-ai" viewBox="0 0 24 24">
+            <path d="M8 4.5h8a4 4 0 0 1 4 4v3a4 4 0 0 1-4 4h-3l-4 3v-3.1a4 4 0 0 1-5-3.9v-3a4 4 0 0 1 4-4Z" fill="none"
+                stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M9 9h.01M12 9h.01M15 9h.01" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" />
+        </symbol>
+        
+        <!-- Human-Centered AI: Person connected to a network -->
+        <symbol id="i-human-centered-ai" viewBox="0 0 24 24">
+            <circle cx="12" cy="7" r="3" fill="none" stroke="currentColor" stroke-width="1.6" />
+            <path d="M6.5 19v-1.5a5.5 5.5 0 0 1 11 0V19" fill="none" stroke="currentColor" stroke-width="1.6"
+                stroke-linecap="round" />
+            <circle cx="4" cy="6" r="1.4" fill="currentColor" />
+            <circle cx="20" cy="6" r="1.4" fill="currentColor" />
+            <circle cx="4" cy="18" r="1.4" fill="currentColor" />
+            <circle cx="20" cy="18" r="1.4" fill="currentColor" />
+            <path d="M5.3 6.7 8.5 8.5M18.7 6.7 15.5 8.5M5.3 17.3l2.3-1.2M18.7 17.3l-2.3-1.2" fill="none" stroke="currentColor"
+                stroke-width="1.3" stroke-linecap="round" />
+        </symbol>
+        
+        <!-- Privacy and Trust in AI: Shield with checkmark -->
+        <symbol id="i-ai-privacy" viewBox="0 0 24 24">
+            <path d="M12 3 20 6v5.5c0 4.5-3.1 7.6-8 9.5-4.9-1.9-8-5-8-9.5V6l8-3Z" fill="none" stroke="currentColor"
+                stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="m8.5 12 2.3 2.3 4.8-5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+                stroke-linejoin="round" />
+        </symbol>
+
+
+    </svg>
+
+    <!-- Soft animated background -->
+    <div class="ambient" aria-hidden="true"><span></span><span></span><span></span></div>
+
+    <a class="skip-link" href="#main">Skip to main content</a>
+
+    <noscript>
+        <p class="bg-warn-soft p-3 text-center text-sm text-warn">This site uses JavaScript to load its styling. Please
+            enable JavaScript for the full design.</p>
+    </noscript>
+
+    <!-- Page frame: on large screens a fixed left column and a scrolling right column; on phones one column -->
+    <div
+        class="mx-auto min-h-screen max-w-page lg:grid lg:grid-cols-[22rem_minmax(0,1fr)] xl:grid-cols-[25rem_minmax(0,1fr)]">
+
+        <!-- ======================= LEFT COLUMN: profile =======================
+         Fixed in place on large screens. On phones it becomes a header at the top of the page.
+         Section menu no longer lives here; it now sits in a top-right bar above the content column. -->
+        <header
+            class="profile relative border-b border-line/70 bg-surface/60 px-5 pb-6 pt-6 backdrop-blur sm:px-8 lg:sticky lg:top-0 lg:flex lg:h-screen lg:flex-col lg:overflow-y-auto lg:border-b-0 lg:border-r lg:px-8 lg:py-9 xl:px-10">
+
+            <button type="button" data-theme-toggle class="icon-btn absolute right-4 top-4 lg:right-5 lg:top-5"
+                aria-pressed="false" aria-label="Switch to dark theme">
+                <svg class="i dark:hidden" width="18" height="18" aria-hidden="true">
+                    <use href="#i-moon" />
+                </svg>
+                <svg class="i hidden dark:block" width="18" height="18" aria-hidden="true">
+                    <use href="#i-sun" />
+                </svg>
+            </button>
+
+            <div class="flex items-center gap-4 pr-12 lg:flex-col lg:items-start lg:gap-5 lg:pr-0">
+
+                <!-- PROFILE PHOTO: save your photo as assets/profile.jpg (portrait, about 800 x 1000 px).
+             Until then the illustrated placeholder below is shown. -->
+                <div
+                    class="avatar-frame relative h-24 w-20 shrink-0 overflow-hidden rounded-2xl ring-4 ring-soft lg:h-64 lg:w-52">
+                    <svg class="absolute inset-0 h-full w-full" viewBox="0 0 200 200"
+                        preserveAspectRatio="xMidYMid slice" role="img" aria-label="Illustrated avatar placeholder"
+                        focusable="false">
+                        <defs>
+                            <linearGradient id="av-bg" x1="0" y1="0" x2="1" y2="1">
+                                <stop offset="0" stop-color="#CFE6F8" />
+                                <stop offset="1" stop-color="#9FD3DC" />
+                            </linearGradient>
+                            <linearGradient id="av-shirt" x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="0" stop-color="#2A6DB0" />
+                                <stop offset="1" stop-color="#1C4E80" />
+                            </linearGradient>
+                        </defs>
+                        <rect width="200" height="200" fill="url(#av-bg)" />
+                        <circle cx="160" cy="44" r="34" fill="#fff" opacity=".28" />
+                        <path d="M22 210c0-42 32-64 78-64s78 22 78 64z" fill="url(#av-shirt)" />
+                        <path d="M84 148 100 172l16-24" fill="#EAF3FB" />
+                        <path d="M88 118h24v34c0 8-24 8-24 0z" fill="#B9805A" />
+                        <circle cx="65" cy="92" r="7" fill="#C68E64" />
+                        <circle cx="135" cy="92" r="7" fill="#C68E64" />
+                        <ellipse cx="100" cy="90" rx="34" ry="41" fill="#D19A70" />
+                        <path d="M64 86c-4-30 14-46 38-46 26 0 40 16 34 46-6-14-16-22-36-22-18 0-30 8-36 22z"
+                            fill="#1A1A22" />
+                        <path d="M66 70c8-18 26-24 44-20 14 4 22 12 26 24-8-12-18-16-32-16-16 0-30 4-38 12z"
+                            fill="#1A1A22" />
+                        <path d="M80 86q7-4 14 0M106 86q7-4 14 0" stroke="#1A1A22" stroke-width="3.2"
+                            stroke-linecap="round" fill="none" />
+                        <circle cx="87" cy="96" r="3.4" fill="#2A1B14" />
+                        <circle cx="113" cy="96" r="3.4" fill="#2A1B14" />
+                        <path d="M88 116q12 10 24 0" stroke="#7A3F2B" stroke-width="3.2" stroke-linecap="round"
+                            fill="none" />
+                    </svg>
+                    <img src="assets/profile.jpg" alt="Portrait of Mohammed Shakib Hossain" width="320" height="400"
+                        class="absolute inset-0 h-full w-full object-cover" onerror="this.remove()">
+                </div>
+
+                <div>
+                    <h1
+                        class="font-display text-2xl font-semibold leading-tight tracking-tight sm:text-3xl lg:text-[1.75rem]">
+                        Mohammed Shakib Hossain</h1>
+                    <p class="mt-1 text-sm font-semibold text-accent lg:text-[0.95rem]">PhD Applicant &middot; MSc
+                        Candidate </p>
+
+                    <p class="mt-1 text-sm text-muted lg:text-[0.95rem]">Computer Science and Engineering</p>
+
+
+                    <!-- <p class="mt-1 flex items-center gap-1.5 text-sm text-muted">
+                        <svg class="i shrink-0" width="16" height="16" aria-hidden="true">
+                            <use href="#i-map-pin" />
+                        </svg>
+                        <span>BRAC University, Dhaka, Bangladesh</span>
+                    </p> -->
+                    <!-- i want to add brac university logo as well as the location here -->
+                <!-- <p class="mt-1 flex items-center gap-1.5 text-sm text-muted">
+                    <svg class="i shrink-0" width="20" height="20" aria-hidden="true">
+                        <use href="#i-map-pin" />
+                    </svg>
+                    <a href="https://www.bracu.ac.bd/" target="_blank" rel="noopener"
+                        class="inline-flex items-center gap-1.5 hover:text-accent" aria-label="BRAC University (opens in a new tab)"
+                        title="BRAC University">
+                        <img src="components/institutions/brac-university.svg" alt="" class="h-4 w-auto">
+                        <span>BRAC University, Dhaka, Bangladesh</span>
+                    </a>
+                </p> -->
+                <div class="mt-2 text-sm text-muted">
+                    <a href="https://www.bracu.ac.bd/" target="_blank" rel="noopener"
+                        class="inline-flex items-center gap-2 font-medium text-ink hover:text-accent"
+                        aria-label="BRAC University (opens in a new tab)" title="BRAC University">
+                        <img src="components/institutions/brac-university.svg" alt="" class="h-8 w-auto">
+                        <p class="mt-1 flex items-center gap-1.5" width="30" height="30" aria-hidden="true">
+                            <span>BRAC University</span>
+                        </p>
+                    </a>
+                   
+
+                    <p class="mt-1 flex items-center gap-1.5">
+                        <svg class="i shrink-0" width="20" height="20" aria-hidden="true">
+                            <use href="#i-map-pin" />
+                        </svg>
+                        <span>Dhaka, Bangladesh</span>
+                    </p>
+                </div>
+
+                </div>
+            </div>
+
+            <!-- <section aria-labelledby="interests-title" class="mt-5 lg:mt-7">
+                <h2 id="interests-title" class="mb-2 text-sm font-semibold">Research interests</h2>
+                <ul class="flex flex-wrap gap-1.5">
+                    <li class="chip chip-accent">HCI</li>
+                    <li class="chip chip-accent">Usable Security and Privacy</li>
+                    <li class="chip chip-accent">Human-Centered Security and Privacy</li>
+                    <li class="chip chip-accent">Human Factors in Security</li>
+                    <li class="chip chip-accent">Empirical and Behavioral Security</li>
+                    <li class="chip chip-accent">Authentication and Security Protocols</li>
+                    <li class="chip chip-accent">Security and Privacy in Emerging Technologies</li>
+                </ul>
+            </section> -->
+            <section aria-labelledby="interests-title" class="mt-5 lg:mt-7">
+                <h2 id="interests-title" class="mb-2 text-sm font-semibold">Research interests</h2>
+                <ul class="flex flex-wrap gap-1.5">
+                    <li class="chip chip-accent">Usable Security and Privacy</li>
+                    <li class="chip chip-accent">Human-Computer Interaction (HCI)</li>
+                    <li class="chip chip-accent">Human-Centered Security and Privacy</li>
+                    <li class="chip chip-accent">Empirical and Behavioral Security</li>
+                    <li class="chip chip-accent">Human Factors in Security</li>
+                    <li class="chip chip-accent">Human-AI Interaction</li>
+                    <li class="chip chip-accent">Human-Centered AI</li>
+                    <li class="chip chip-accent">Privacy and Trust in AI Systems</li>
+                    <li class="chip chip-accent">Security and Privacy in Emerging Technologies</li>
+                    <li class="chip chip-accent">Authentication and Security Protocols</li>
+                </ul>
+            </section>
+
+            <!-- Profiles and contact.
+           REAL: GitHub, LinkedIn, email.
+           DUMMY (currently https://google.com): Google Scholar, ORCID, X, Facebook, CV. Replace them with your own links. -->
+            <section aria-labelledby="links-title" class="mt-7 lg:mt-auto lg:pt-8">
+                <h2 id="links-title" class="sr-only">Profiles and contact</h2>
+                <ul class="flex flex-wrap gap-[0.45rem]">
+                    <li><a class="icon-btn" href="https://github.com/addshakib80" target="_blank" rel="noopener"
+                            aria-label="GitHub (opens in a new tab)" title="GitHub"><svg class="i b" width="18"
+                                height="18" aria-hidden="true">
+                                <use href="#b-github" />
+                            </svg></a></li>
+                    <li><a class="icon-btn" href="https://linkedin.com/in/shakib80" target="_blank" rel="noopener"
+                            aria-label="LinkedIn (opens in a new tab)" title="LinkedIn"><svg class="i b" width="18"
+                                height="18" aria-hidden="true">
+                                <use href="#b-linkedin" />
+                            </svg></a></li>
+                    <li><a class="icon-btn" data-dummy="Google Scholar"
+                            href="https://scholar.google.com/citations?user=A39OT_AAAAAJ&hl=en" target="_blank"
+                            rel="noopener" aria-label="Google Scholar (opens in a new tab)" title="Google Scholar"><svg
+                                class="i b" width="18" height="18" aria-hidden="true">
+                                <use href="#b-google-scholar" />
+                            </svg></a></li>
+                    <li><a class="icon-btn" data-dummy="ORCID" href="https://orcid.org/0009-0005-0530-8930"
+                            target="_blank" rel="noopener" aria-label="ORCID (opens in a new tab)" title="ORCID"><svg
+                                class="i b" width="18" height="18" aria-hidden="true">
+                                <use href="#b-orcid" />
+                            </svg></a></li>
+                    <li><a class="icon-btn" data-dummy="X (Twitter)" href="https://x.com/Skib80" target="_blank"
+                            rel="noopener" aria-label="X, formerly Twitter (opens in a new tab)" title="X"><svg
+                                class="i b" width="18" height="18" aria-hidden="true">
+                                <use href="#b-x" />
+                            </svg></a></li>
+                    <li><a class="icon-btn" data-dummy="Facebook" href="https://www.facebook.com/addskib/"
+                            target="_blank" rel="noopener" aria-label="Facebook (opens in a new tab)"
+                            title="Facebook"><svg class="i b" width="18" height="18" aria-hidden="true">
+                                <use href="#b-facebook" />
+                            </svg></a></li>
+
+                
+                </ul>
+
+                <address class="mt-4 not-italic">
+                    <a class="link inline-flex items-center gap-2 text-sm font-medium"
+                        href="mailto:addshakib@gmail.com">
+                        <svg class="i" width="18" height="18" aria-hidden="true">
+                            <use href="#i-mail" />
+                        </svg>addshakib@gmail.com
+                    </a>
+                </address>
+
+                <a class="btn btn-primary no-print mt-4 w-full" data-dummy="CV (PDF)" href="assets/documents/CV.pdf"
+                    target="_blank" rel="noopener">
+                    <svg class="i" width="18" height="18" aria-hidden="true">
+                        <use href="#i-download" />
+                    </svg>Download CV
+                    <span class="sr-only">(PDF, opens in a new tab)</span>
+                </a>
+            </section>
+        </header>
+
+        <!-- ======================= RIGHT COLUMN: scrolling content ======================= -->
+        <div class="min-w-0">
+
+            <!-- Section menu: sticky bar pinned to the top-right corner of the content column, on every screen size. -->
+             <!-- if the screen size get small how to access the menu bar it must be accessible and visible. but in mobile view i can not scroll to other section in menu content -->
+
+
+           
+            <!-- Main content: each section is a full-width horizontal band, with a max width for the text. -->
+             <!-- if screen size is small, the menu bar must be accessible and visible. but in mobile view i can not scroll to other section in menu content
+             -->
+
+             <!-- <nav aria-label="Sections"
+                class="mobile-nav sticky top-0 z-30 border-b border-line/70 bg-paper/85 backdrop-blur-xl">
+                <ul class="flex justify-end gap-1 overflow-x-auto px-4 py-2 sm:px-8 lg:px-8"> -->
+
+
+            <nav aria-label="Sections"
+                class="mobile-nav sticky top-0 z-30 flex border-b border-line/70 bg-paper/85 backdrop-blur-xl">
+                <ul class="ml-auto flex gap-1 overflow-x-auto px-4 py-2 sm:px-8 lg:px-8">
+                    <li><a class="nav-link" data-nav href="#about">About</a></li>
+                    <li><a class="nav-link" data-nav href="#research">Research &amp; Publications</a></li>
+                    <li><a class="nav-link" data-nav href="#education">Education</a></li>
+                    <li><a class="nav-link" data-nav href="#experience">Experience</a></li>
+                    <li><a class="nav-link" data-nav href="#awards">Awards</a></li>
+                    <li><a class="nav-link" data-nav href="#projects">Projects</a></li>
+                    <li><a class="nav-link" data-nav href="#skills">Skills</a></li>
+                    <li><a class="nav-link" data-nav href="#case-studies">Case Studies</a></li>
+                </ul>
+            </nav>
+
+            <main id="main" tabindex="-1">
+
+                <!-- ===================== ABOUT ME ===================== -->
+                <section id="about" aria-labelledby="about-title" class="px-5 py-14 sm:px-8 lg:px-12 lg:py-24 xl:px-16">
+                    <div class="max-w-4xl">
+
+                        <p
+                            class="reveal inline-flex items-center gap-2 rounded-full border border-accent/30 bg-soft px-3.5 py-1.5 text-sm font-semibold text-accent">
+                            <span class="h-2 w-2 rounded-full bg-emerald-500 dark:bg-emerald-400" aria-hidden="true"></span>
+                            Open to PhD, research, and academic opportunities
+                        </p>
+
+                        <!-- <h5 id="about-title"
+                            class="mt-6 font-display text-3xl font-semibold tracking-tight sm:text-4xl lg:text-[2.25rem]"
+                            style="--d:.05s">I study how people meet security and privacy requirements in everyday work,
+                            and what happens when the rules don’t fit the job.</h5> -->
+                        <h5 id="about-title" class="mt-6 font-display text-3xl font-semibold tracking-tight sm:text-4xl lg:text-[2.25rem]"
+                            style="--d:.05s">
+                            I explore how people interact with technology, make decisions, and navigate security and privacy in everyday life.
+                        </h5>
+
+                        <div class="reveal mt-6 max-w-3xl space-y-4 text-[1.05rem] text-muted" style="--d:.1s">
+                            <!-- <p>I’m a master’s student in Computer Science and Engineering at BRAC University in Dhaka.
+                                My thesis, supervised by <a class="link"
+                                    href="https://www.bracu.ac.bd/about/people/s-m-taiabul-haque-phd" target="_blank"
+                                    rel="noopener">Dr. S M Taiabul Haque</a>, looks at security policy violations and
+                                workarounds among software and IT employees in Bangladesh.</p> -->
+
+                            <p>
+                                I’m a master’s student in Computer Science and Engineering at BRAC University
+                                in Dhaka. My MSc thesis research, supervised by
+                                <a class="link" href="https://www.bracu.ac.bd/about/people/s-m-taiabul-haque-phd" target="_blank" rel="noopener">Dr.
+                                    S M Taiabul Haque</a>,
+                                examines how organizational, technological, and human factors shape the
+                                interpretation and implementation of information security policies in
+                                Bangladeshi organizations. I’m particularly interested in how employees
+                                navigate security requirements in everyday work, and how policy deviations,
+                                informal workarounds, and exceptions are understood and managed by employees
+                                and security decision-makers.
+                            </p>
+
+
+
+                            <!-- <p>I came to this from security systems. My bachelor’s thesis, supervised by <a class="link"
+                                    href="https://www.bracu.ac.bd/about/people/md-sadek-ferdous-phd" target="_blank"
+                                    rel="noopener">Dr. Md Sadek Ferdous</a>, designed an NFT-based authentication
+                                mechanism for federated metaverses. Running its user study turned my attention to the
+                                people who have to use security mechanisms: a mechanism can be technically sound and
+                                still fail to make sense to the person using it.</p> -->
+
+                            <p>
+                                My interest in the human side of security grew from my bachelor’s thesis,
+                                supervised by
+                                <a class="link" href="https://www.bracu.ac.bd/about/people/md-sadek-ferdous-phd" target="_blank" rel="noopener">Dr.
+                                    Md Sadek Ferdous</a>,
+                                which explored an NFT-based authentication mechanism for federated metaverses.
+                                Combining technical security analysis with a user study made me interested
+                                in how people understand, experience, and make decisions about the security
+                                mechanisms they use.
+                            </p>
+
+
+
+                            <!-- <p>That question of what a real choice looks like has stayed with me since. In my own work I move between interviews,
+                                user studies, and usability evaluation on one side, and the more formal analysis of a system on the other, whichever
+                                a given question actually calls for.</p> -->
+                            <p>
+                                More broadly, I’m interested in human-computer interaction, usable security
+                                and privacy, human factors in security, and human-centered technology design.
+                                I’m interested in research that connects people's experiences and everyday
+                                practices with the design and evaluation of technical systems, using
+                                approaches suited to the question, from interviews and usability studies
+                                to threat modeling and formal verification.
+                            </p>
+
+                            <!-- <p>I work with interviews, user studies, usability evaluation, and formal analysis. I’m
+                                especially interested in how people’s circumstances shape the security and privacy
+                                choices they are able to make.</p>  -->
+                        </div>
+
+                        <h3 class="mt-14 font-display text-2xl font-semibold tracking-tight">Research interests</h3>
+                        <ul class="mt-5 grid gap-4 sm:grid-cols-2">
+
+                            <li class="card reveal flex gap-4 p-5">
+                                <span
+                                    class="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-soft text-accent"><svg
+                                        class="i" width="22" height="22" aria-hidden="true">
+                                        <use href="#i-eye" />
+                                    </svg></span>
+                                <div>
+                                    <h4 class="font-semibold leading-snug">Usable privacy and security</h4>
+                                    <p class="mt-1 text-sm text-muted">Making security and privacy work for the people
+                                        who live with them, in everyday tools and jobs.</p>
+                                </div>
+                            </li>
+
+                            <li class="card reveal flex gap-4 p-5" style="--d:.05s">
+                                <span
+                                    class="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-soft text-accent"><svg
+                                        class="i" width="22" height="22" aria-hidden="true">
+                                        <use href="#i-pointer" />
+                                    </svg></span>
+                                <div>
+                                    <h4 class="font-semibold leading-snug">Human-computer interaction</h4>
+                                    <p class="mt-1 text-sm text-muted">User studies and usability evaluation with the
+                                        System Usability Scale and custom UX surveys.</p>
+                                </div>
+                            </li>
+
+                            <li class="card reveal flex gap-4 p-5">
+                                <span
+                                    class="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-soft text-accent"><svg
+                                        class="i" width="22" height="22" aria-hidden="true">
+                                        <use href="#i-users" />
+                                    </svg></span>
+                                <div>
+                                    <h4 class="font-semibold leading-snug">Human-centered security and privacy</h4>
+                                    <p class="mt-1 text-sm text-muted">How people’s circumstances shape the choices they
+                                        can make, from software teams to tea garden workers.</p>
+                                </div>
+                            </li>
+
+                            <li class="card reveal flex gap-4 p-5" style="--d:.05s">
+                                <span
+                                    class="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-soft text-accent"><svg
+                                        class="i" width="22" height="22" aria-hidden="true">
+                                        <use href="#i-user" />
+                                    </svg></span>
+                                <div>
+                                    <h4 class="font-semibold leading-snug">Human factors in security</h4>
+                                    <p class="mt-1 text-sm text-muted">Why people work around security policies, and
+                                        what the workarounds reveal about the policies.</p>
+                                </div>
+                            </li>
+
+                            <li class="card reveal flex gap-4 p-5">
+                                <span
+                                    class="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-soft text-accent"><svg
+                                        class="i" width="22" height="22" aria-hidden="true">
+                                        <use href="#i-chart" />
+                                    </svg></span>
+                                <div>
+                                    <h4 class="font-semibold leading-snug">Empirical and behavioral security</h4>
+                                    <p class="mt-1 text-sm text-muted">Interviews, thematic analysis, and user studies
+                                        grounded in real practice.</p>
+                                </div>
+                            </li>
+
+                            <li class="card reveal flex gap-4 p-5">
+                                <span class="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-soft text-accent">
+                                    <svg class="i" width="22" height="22" aria-hidden="true">
+                                        <use href="#i-human-ai" />
+                                    </svg>
+                                </span>
+                                <div>
+                                    <h4 class="font-semibold leading-snug">Human-AI interaction</h4>
+                                    <p class="mt-1 text-sm text-muted">How people evaluate, interpret, and use AI-generated advice alongside their
+                                        own judgment and human guidance.</p>
+                                </div>
+                            </li>
+                            
+                            <li class="card reveal flex gap-4 p-5" style="--d:.05s">
+                                <span class="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-soft text-accent">
+                                    <svg class="i" width="22" height="22" aria-hidden="true">
+                                        <use href="#i-human-centered-ai" />
+                                    </svg>
+                                </span>
+                                <div>
+                                    <h4 class="font-semibold leading-snug">Human-centered AI</h4>
+                                    <p class="mt-1 text-sm text-muted">Designing AI systems that support people’s needs, preserve their agency, and
+                                        help them make informed decisions.</p>
+                                </div>
+                            </li>
+                            
+                            <li class="card reveal flex gap-4 p-5">
+                                <span class="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-soft text-accent">
+                                    <svg class="i" width="22" height="22" aria-hidden="true">
+                                        <use href="#i-ai-privacy" />
+                                    </svg>
+                                </span>
+                                <div>
+                                    <h4 class="font-semibold leading-snug">Privacy and trust in AI systems</h4>
+                                    <p class="mt-1 text-sm text-muted">Understanding how people manage personal information and make disclosure
+                                        decisions when interacting with AI systems.</p>
+                                </div>
+                            </li>
+<!--  -->
+
+
+
+
+<!--  -->
+                            <li class="card reveal flex gap-4 p-5" style="--d:.05s">
+                                <span
+                                    class="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-soft text-accent"><svg
+                                        class="i" width="22" height="22" aria-hidden="true">
+                                        <use href="#i-fingerprint" />
+                                    </svg></span>
+                                <div>
+                                    <h4 class="font-semibold leading-snug">Authentication and security protocols</h4>
+                                    <p class="mt-1 text-sm text-muted">NFT-based authentication, threat modeling, and
+                                        formal verification with ProVerif.</p>
+                                </div>
+                            </li>
+
+                            <li class="card reveal flex gap-4 p-5" style="--d:.05s">
+                                <span
+                                    class="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-soft text-accent"><svg
+                                        class="i" width="22" height="22" aria-hidden="true">
+                                        <use href="#i-vr" />
+                                    </svg></span>
+                                <div>
+                                    <h4 class="font-semibold leading-snug">Security and privacy in emerging technologies
+                                    </h4>
+                                    <p class="mt-1 text-sm text-muted">Federated metaverses, immersive VR, and
+                                        blockchain-based identity, where familiar security assumptions do not always
+                                        hold.</p>
+                                </div>
+                            </li>
+                        </ul>
+
+                        <p class="mt-6 text-sm font-medium">
+                            <a class="link" data-dummy="Research statement PDF" href="assets/documents/research_statement.pdf" target="_blank" rel="noopener">Read my
+                                research statement (PDF)<span class="sr-only">
+                                    (opens in a new tab)</span></a>
+                        </p>
+
+                        <h3 class="mt-14 font-display text-2xl font-semibold tracking-tight">What I’m working on now
+                        </h3>
+                        <ul class="mt-5 space-y-3">
+                            <li class="card reveal flex gap-4 p-5">
+                                <span
+                                    class="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-soft text-accent"><svg
+                                        class="i" width="22" height="22" aria-hidden="true">
+                                        <use href="#i-flask" />
+                                    </svg></span>
+                                <div>
+                                    <h4 class="font-semibold">MSc thesis fieldwork</h4>
+                                    <p class="mt-1 text-sm text-muted">Interviewing software and IT employees in
+                                        Bangladesh about security policies, workarounds, and how security practices are
+                                        learned at work.</p>
+                                </div>
+                            </li>
+                            <li class="card reveal flex gap-4 p-5" style="--d:.05s">
+                                <span
+                                    class="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-soft text-accent"><svg
+                                        class="i" width="22" height="22" aria-hidden="true">
+                                        <use href="#i-pen" />
+                                    </svg></span>
+                                <div>
+                                    <h4 class="font-semibold">Manuscript in preparation</h4>
+                                    <p class="mt-1 text-sm text-muted">Writing up the thesis as a paper on security
+                                        policy violations and exceptions in organizational workflows.</p>
+                                </div>
+                            </li>
+                            <li class="card reveal flex gap-4 p-5" style="--d:.1s">
+                                <span
+                                    class="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-soft text-accent"><svg
+                                        class="i" width="22" height="22" aria-hidden="true">
+                                        <use href="#i-award" />
+                                    </svg></span>
+                                <div>
+                                    <h4 class="font-semibold">Accepted at IEEE Blockchain 2026</h4>
+                                    <p class="mt-1 text-sm text-muted">Our NFT-based authentication paper for federated
+                                        metaverses, built on my bachelor’s thesis.</p>
+                                </div>
+                            </li>
+                        </ul>
+
+                        <h3 class="mt-14 font-display text-2xl font-semibold tracking-tight">Beyond research</h3>
+                        <div class="card reveal mt-5 p-6 sm:p-7">
+                            <p class="text-muted">I grew up in Chattogram, between the hills and the Bay of Bengal, and moved to Dhaka for university. I have always loved
+                            cricket, although I rarely get the chance to play these days. I think I enjoy the game not only for the sport itself,
+                            but also for the way it teaches patience and composure—especially when things do not go as planned. I try to bring the
+                            same mindset to my academic work: stay calm under pressure, focus on what I can control, and work through difficult
+                            problems one step at a time.</p>
+                            <dl class="mt-5 grid gap-x-8 gap-y-3 text-sm sm:grid-cols-2">
+                                <div>
+                                    <dt class="font-semibold">Hometown</dt>
+                                    <dd class="text-muted">Chattogram (Chittagong), Bangladesh</dd>
+                                </div>
+                                <div>
+                                    <dt class="font-semibold">Languages</dt>
+                                    <dd class="text-muted">Bangla (native), English (professional working proficiency)
+                                    </dd>
+                                </div>
+                            </dl>
+                        </div>
+
+                    </div>
+                </section>
+
+                <!-- ===================== RESEARCH AND PUBLICATIONS ===================== -->
+                <section id="research" aria-labelledby="research-title"
+                    class="px-5 py-14 sm:px-8 lg:px-12 lg:py-24 xl:px-16">
+                    <div class="max-w-4xl">
+
+                        <h2 id="research-title"
+                            class="reveal font-display text-3xl font-semibold tracking-tight sm:text-4xl">Research and
+                            publications</h2>
+                        <p class="reveal mt-4 max-w-3xl text-[1.05rem] text-muted">My work moves between building
+                            security mechanisms and studying the people who use them. So far that means one accepted
+                            conference paper, one manuscript in preparation, and a research program organized around
+                            four questions.</p>
+
+                        <h3 class="mt-12 font-display text-2xl font-semibold tracking-tight">Publications</h3>
+                        <ul class="mt-5 space-y-5">
+
+                            <li>
+                                <article id="pub-nft-auth" class="card reveal p-6 sm:p-8">
+                                    <p class="flex flex-wrap items-center gap-3 text-sm text-muted"><span
+                                            class="status status-accepted">Accepted</span>Conference paper, 2026</p>
+                                    <h4 class="mt-3 font-display text-xl font-semibold leading-snug sm:text-2xl">A
+                                        Secure Authentication Mechanism for Federated Metaverses Using Non-Fungible
+                                        Tokens (NFTs)</h4>
+                                    <p class="mt-3"><strong class="font-semibold">M. S. Hossain</strong>, K. E. U.
+                                        Hawak, M. Jawad, M. Y. Ali, S. Karmoker, M. A. Nahid, H. Shahriar and M. S.
+                                        Ferdous</p>
+
+                                    <p class="text-muted"> <img src="components/institutions/ieee-blockchain.svg" alt=""
+                                            width="80" height="80" class="inline-block" /> IEEE International Conference
+                                        on Blockchain (IEEE Blockchain),
+                                        2026 </p>
+
+
+
+                                    <details class="more mt-4">
+                                        <summary>Summary</summary>
+                                        <p class="mt-3 text-muted">The paper presents an NFT-based authentication
+                                            mechanism for federated metaverses, designed to avoid the usability and
+                                            privacy limits of password-based and centralized logins. The protocols are
+                                            analyzed with a threat model and formally verified with ProVerif, and a
+                                            proof of concept in a VR-based metaverse is evaluated with users.</p>
+                                    </details>
+
+                                    <ul class="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-sm font-medium">
+                                        <li><a class="link" data-dummy="Paper PDF" href="assets/documents/hossain2026nft.pdf"
+                                                target="_blank" rel="noopener">Read the paper (PDF)<span
+                                                    class="sr-only"> (opens in a new tab)</span></a></li>
+                                        <li><a class="link"
+                                                href="https://ieee-cybermatics2026.org/call-for-papers/blockchain/"
+                                                target="_blank" rel="noopener">Conference website<span class="sr-only">
+                                                    (opens in a new tab)</span></a></li>
+                                        
+                                        <li><a class="link" href="#case-nft">Case study</a></li>
+                                    </ul>
+
+                                    <div class="mt-5">
+                                        <button type="button" class="btn btn-ghost no-print"
+                                            data-copy="@inproceedings{hossain2026secure,&#10;  author    = {Hossain, M. S. and Hawak, K. E. U. and Jawad, M. and Ali, M. Y. and karmokar, M. and  Nahid, M. A. and Shahriar, H. and Ferdous, M. S.},&#10;  title     = {A Secure Authentication Mechanism for Federated Metaverses Using Non-Fungible Tokens ({NFTs})},&#10;  booktitle = {IEEE International Conference on Blockchain (IEEE Blockchain)},&#10;  year      = {2026},&#10;  note      = {Accepted for publication}&#10;}">
+                                            <svg class="i" width="16" height="16" aria-hidden="true">
+                                                <use href="#i-copy" />
+                                            </svg><span data-copy-label>Copy BibTeX</span>
+                                        </button>
+                                        <p id="copy-status" class="sr-only" role="status" aria-live="polite"></p>
+                                    </div>
+                                </article>
+                            </li>
+
+                            <li>
+                                <article id="pub-policy-violations" class="card reveal p-6 sm:p-8" style="--d:.06s">
+                                    <p class="flex flex-wrap items-center gap-3 text-sm text-muted"><span
+                                            class="status status-draft">In preparation</span>Manuscript, 2026</p>
+                                    <h4 class="mt-3 font-display text-xl font-semibold leading-snug sm:text-2xl">
+                                        Negotiating Security in Everyday Organizational Work: How Security Policy Deviations
+                                        and Exceptions Are Interpreted and Managed in Bangladesh</h4>
+                                    <p class="mt-3"><strong class="font-semibold">M. S. Hossain</strong></p>
+                                    <p class="text-muted">Manuscript in preparation, 2026. Based on my MSc thesis.</p>
+                                    <p class="mt-5 text-sm font-medium"><a class="link" href="#case-policy">Case
+                                            study</a></p>
+                                </article>
+                            </li>
+                        </ul>
+
+                        <p class="mt-6 text-sm">
+                            <a class="link font-medium" data-dummy="Google Scholar profile"
+                                href="https://scholar.google.com/citations?user=A39OT_AAAAAJ&hl=en" target="_blank"
+                                rel="noopener">See my full list on Google Scholar<span class="sr-only"> (opens in a new
+                                    tab)</span></a>
+                        </p>
+
+                        <!--  -->
+
+                        <!-- <h3 class="mt-14 font-display text-2xl font-semibold tracking-tight">Research themes</h3>
+                        <ul class="mt-5 grid gap-4 sm:grid-cols-2">
+                            <li>
+                                <a href="#case-nft" class="card reveal block h-full p-5 transition hover:border-accent">
+                                    <span class="chip chip-accent">Authentication across digital environments</span>
+                                    <p class="mt-3 text-sm text-muted">How authentication mechanisms can support secure access across platforms
+                                        while accounting for users' needs and experiences.</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#case-vr" class="card reveal block h-full p-5 transition hover:border-accent" style="--d:.05s">
+                                    <span class="chip chip-accent">Security, usability, and user experience</span>
+                                    <p class="mt-3 text-sm text-muted">When technically sound security mechanisms create practical difficulties,
+                                        and how usability evaluation can help identify them.</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#case-tea" class="card reveal block h-full p-5 transition hover:border-accent">
+                                    <span class="chip chip-accent">Privacy decisions in everyday technology use</span>
+                                    <p class="mt-3 text-sm text-muted">How personal circumstances and privacy concerns shape information
+                                        disclosure and people's control over their personal information.</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#case-policy" class="card reveal block h-full p-5 transition hover:border-accent" style="--d:.05s">
+                                    <span class="chip chip-accent">Security practices in organizational workflows</span>
+                                    <p class="mt-3 text-sm text-muted">Why employees deviate from formal security policies, how workarounds
+                                        emerge, and how workplace conditions shape security practices.</p>
+                                </a>
+                            </li>
+                        </ul> -->
+
+                        <!--  -->
+                        <!-- <section id="research-projects" aria-labelledby="research-projects-title"
+                            class="px-5 py-14 sm:px-8 lg:px-12 lg:py-24 xl:px-16"> -->
+                        
+                            <h3 id="research-projects-title" class="mt-14 font-display text-2xl font-semibold tracking-tight">
+                                Research Projects
+                            </h3>
+                            
+                            <ul class="mt-5 space-y-4">
+                            
+                                <!-- CSE731: HCI and Design Research -->
+                                <li class="card reveal p-6">
+                                    <p class="text-sm font-semibold text-accent">Fall 2026</p>
+                                    <h4 class="font-display text-xl font-semibold leading-snug">
+                                        Before You Share: Designing a User-Controlled Privacy Review Interface
+                                        for Everyday AI Advice-Seeking Among Bangladeshi University Students
+                                    </h4>
+                                    <p class="text-sm text-muted">
+                                        CSE731: HCI and Design Research, BRAC University.
+                                    </p>
+                                    <ul class="mt-3 list-disc space-y-1.5 pl-5 text-sm text-muted marker:text-accent">
+                                        <li>Proposed a study investigating how university students balance contextual relevance and personal privacy
+                                            when seeking everyday advice from AI chatbots.</li>
+                                        <li>Designed a mixed-method research plan combining questionnaires and semi-structured interviews to explore
+                                            how students decide which personal details to share.</li>
+                                        <li>Proposed a clickable Figma prototype that would allow users to retain, generalize, or remove personal
+                                            details while preserving useful context.</li>
+                                    </ul>
+                                    <div class="mt-4 flex flex-wrap gap-2" aria-label="Research keywords">
+                                        <span class="chip">Information Disclosure</span>
+                                        <span class="chip">Usable Privacy</span>
+                                        <span class="chip">Human-AI Interaction</span>
+                                        <span class="chip">Human-Centered Design</span>
+                                        <!-- <span class="chip">Privacy-Preserving Interfaces</span> -->
+                                        <span class="chip">Privacy Decision-Making</span>
+                                    </div>
+                                </li>
+                            
+                                <!-- CSE791: Research Methodology and Seminar -->
+                                <li class="card reveal p-6" style="--d:.05s">
+                                    <p class="text-sm font-semibold text-accent">Summer 2026</p>
+                                    <h4 class="font-display text-xl font-semibold leading-snug">
+                                        Understanding Security Policy Violations and Exceptions in Organizational Workflow in Bangladesh
+                                    </h4>
+                                    <p class="text-sm text-muted">
+                                        CSE791: Research Methodology and Seminar, BRAC University.
+                                    </p>
+                                    <ul class="mt-3 list-disc space-y-1.5 pl-5 text-sm text-muted marker:text-accent">
+                                        <li>Explored workplace information-sharing, client communication, and security-related practices among
+                                            software and IT professionals in Bangladesh through five semi-structured interviews.</li>
+                                        <li>Applied reflexive thematic analysis to examine workplace demands, informal security expectations, client
+                                            requirements, and organizational responses to alternative practices.</li>
+                                        <li>Examined how everyday work practices can intersect with formal organizational security expectations.
+                                        </li>
+                                    </ul>
+                                    <div class="mt-4 flex flex-wrap gap-2" aria-label="Research keywords">
+                                        <span class="chip">Usable Security</span>
+                                        <span class="chip">Security Behaviors</span>
+                                        <span class="chip">Policy Compliance</span>
+                                        <span class="chip">Shadow Security</span>
+                                        <span class="chip">Workplace Security</span>
+                                    </div>
+                                </li>
+
+
+
+                                <!-- CSE773: Usable Security and Privacy -->
+                                <li class="card reveal p-6" style="--d:.15s">
+                                    <p class="text-sm font-semibold text-accent">Spring 2026</p>
+                                    <h4 class="font-display text-xl font-semibold leading-snug">
+                                        Living Under Watch: Privacy, Surveillance, and Digital Harm among Tea Garden Workers in Bangladesh
+                                    </h4>
+                                    <p class="text-sm text-muted">
+                                        CSE773: Usable Security and Privacy, BRAC University.
+                                    </p>
+                                    <ul class="mt-3 list-disc space-y-1.5 pl-5 text-sm text-muted marker:text-accent">
+                                        <li>Proposed a qualitative study exploring privacy, surveillance, and digital harm among tea garden workers
+                                            in Bangladesh.</li>
+                                        <li>Prepared the introduction, literature review, study design, and methodology, considering how social
+                                            circumstances and unequal power relationships may shape privacy risks.</li>
+                                    </ul>
+                                    <div class="mt-4 flex flex-wrap gap-2" aria-label="Research keywords">
+                                        <span class="chip">Privacy and Surveillance</span>
+                                        <span class="chip">Digital Inequality</span>
+                                        <span class="chip">Privacy Risks</span>
+                                        <span class="chip">Power Asymmetries</span>
+                                        <span class="chip">Human-Centered Privacy</span>
+                                    </div>
+                                </li>
+                            
+                                <!-- CSE726: Information Assurance and Human Factors -->
+                                <li class="card reveal p-6" style="--d:.1s">
+                                    <p class="text-sm font-semibold text-accent">Spring 2026</p>
+                                    <h4 class="font-display text-xl font-semibold leading-snug">
+                                        Bridging the Gap: Understanding Security Policy Violations in Organizational Workflows in Bangladesh
+                                    </h4>
+                                    <p class="text-sm text-muted">
+                                        CSE726: Information Assurance and Human Factors, BRAC University.
+                                    </p>
+                                    <ul class="mt-3 list-disc space-y-1.5 pl-5 text-sm text-muted marker:text-accent">
+                                        <li>Developed a research proposal examining human and organizational factors that contribute to deviations
+                                            from formal security policies.</li>
+                                        <li>Prepared the introduction, literature review, proposed study design, and methodology, focusing on
+                                            tensions between security requirements, workplace demands, and practical constraints.</li>
+                                    </ul>
+                                    <div class="mt-4 flex flex-wrap gap-2" aria-label="Research keywords">
+                                        <span class="chip">Organizational Security</span>
+                                        <span class="chip">Human Factors in Security</span>
+                                        <span class="chip">Security Policy Compliance</span>
+                                        <span class="chip">Security Workarounds</span>
+                                    </div>
+                                </li>
+                            
+                                
+                            
+                            </ul>
+                    
+
+
+
+
+                        <!--  -->
+
+                        <!-- <h3 class="mt-14 font-display text-2xl font-semibold tracking-tight">Research methods</h3>
+                        <dl class="card reveal mt-5 grid gap-x-8 gap-y-4 p-6 sm:grid-cols-[10rem_minmax(0,1fr)] sm:p-7">
+                            <dt class="text-sm font-semibold text-muted">Qualitative</dt>
+                            <dd>Semi-structured interviews, reflexive thematic analysis (Braun and Clarke)</dd>
+                            <dt class="text-sm font-semibold text-muted">User research</dt>
+                            <dd>User studies, usability evaluation, System Usability Scale, Likert-scale UX surveys</dd>
+                            <dt class="text-sm font-semibold text-muted">Quantitative</dt>
+                            <dd>Descriptive statistics, Likert-scale analysis</dd>
+                            <dt class="text-sm font-semibold text-muted">Formal analysis</dt>
+                            <dd>Threat modeling, protocol verification with ProVerif</dd>
+                        </dl> -->
+
+
+                        <h3 class="mt-14 font-display text-2xl font-semibold tracking-tight">
+                            Research methods
+                        </h3>
+                        
+                        <dl class="card reveal mt-5 grid gap-x-8 gap-y-4 p-6 sm:grid-cols-[10rem_minmax(0,1fr)] sm:p-7">
+                            <dt class="text-sm font-semibold text-muted">Qualitative</dt>
+                            <dd>Semi-structured interviews, reflexive thematic analysis (Braun and Clarke)</dd>
+                        
+                            <dt class="text-sm font-semibold text-muted">User research</dt>
+                            <dd>User studies, usability evaluation, System Usability Scale, Likert-scale UX surveys</dd>
+                        
+                            <dt class="text-sm font-semibold text-muted">Quantitative</dt>
+                            <dd>Descriptive statistics, Likert-scale analysis</dd>
+                        
+                            <dt class="text-sm font-semibold text-muted">Formal analysis</dt>
+                            <dd>Threat modeling, protocol verification with ProVerif</dd>
+                        </dl>
+
+                        <!-- <p class="mt-6 text-sm font-medium">
+                            <a class="link" data-dummy="Research statement PDF" href="https://google.com"
+                                target="_blank" rel="noopener">Read my research statement (PDF)<span class="sr-only">
+                                    (opens in a new tab)</span></a>
+                        </p> -->
+
+                    </div>
+                </section>
+
+                <!-- ===================== CV AND EXPERIENCE ===================== -->
+                <!-- <section id="cv" aria-labelledby="cv-title" class="px-5 py-14 sm:px-8 lg:px-12 lg:py-24 xl:px-16">
+                    <div class="max-w-4xl"> -->
+
+                        <!-- <div class="reveal flex flex-wrap items-end justify-between gap-4">
+                            <h2 id="cv-title" class="font-display text-3xl font-semibold tracking-tight sm:text-4xl">CV
+                                and experience</h2>
+                            <a class="btn btn-primary no-print" data-dummy="CV (PDF)" href="https://google.com"
+                                target="_blank" rel="noopener"><svg class="i" width="18" height="18" aria-hidden="true">
+                                    <use href="#i-download" />
+                                </svg>Download CV<span class="sr-only"> (PDF, opens in a new tab)</span></a>
+                        </div> -->
+
+                    <section id="education" aria-labelledby="education-title" class="px-5 py-14 sm:px-8 lg:px-12 lg:py-24 xl:px-16">
+
+
+                        <h3 id="education-title" class="mt-12 font-display text-2xl font-semibold tracking-tight">
+                            Education</h3>
+                        <ol class="timeline mt-5 space-y-5">
+
+                            <li>
+                                <article class="card reveal p-6">
+                                    <div class="flex flex-wrap items-start justify-between gap-3">
+                                        <div>
+                                            <p class="text-sm font-semibold text-accent">Ongoing</p>
+                                            <img src="components/institutions/brac-university.svg" alt="" width="40"
+                                                height="40" class="rounded-lg">
+                                            <h4 class="font-display text-xl font-semibold leading-snug">MSc in
+                                                Computer
+                                                Science and Engineering</h4>
+
+
+                                            <p class="text-sm text-muted">BRAC University, Dhaka, Bangladesh</p>
+                                        </div>
+                                        <span class="status status-accepted">CGPA 4.00 / 4.00</span>
+                                    </div>
+                                    <p class="mt-4 text-sm"><strong class="font-semibold">Thesis:</strong> <em>Negotiating Security in Everyday Organizational Work: Understanding
+                                        Policy Deviations and Exceptions in Bangladesh</em>., supervised by
+                                        <a class="link" href="https://www.bracu.ac.bd/about/people/s-m-taiabul-haque-phd" target="_blank" rel="noopener">Dr. S M
+                                            Taiabul Haque</a></p>
+                                    <p class="mt-4 text-sm font-semibold text-muted">Coursework</p>
+                                    <ul class="mt-2 flex flex-wrap gap-2">
+                                        <li class="chip">Introduction to Cryptography</li>
+                                        <li class="chip">Applied Cryptography</li>
+                                        <li class="chip">Information Assurance and Human Factor</li>
+                                        <li class="chip">Usable Security and Privacy</li>
+                                        <li class="chip">Blockchain and Distributed Ledger</li>
+                                        <li class="chip">Computer Communications and Networks</li>
+                                        <li class="chip">Human-Computer Interaction and Design</li>
+                                        <li class="chip">Research Methodology and Seminar</li>
+                                    </ul>
+                                </article>
+                            </li>
+
+                            <li>
+                                <article class="card reveal p-6">
+                                    <div class="flex flex-wrap items-start justify-between gap-3">
+                                        <div>
+                                            <p class="text-sm font-semibold text-accent">June 2021 – Jan 2025</p>
+                                            <img src="components/institutions/brac-university.svg" alt="" width="40"
+                                                height="40" class="rounded-lg">
+
+                                            <h4 class="font-display text-xl font-semibold leading-snug">BSc in
+                                                Computer
+                                                Science and Engineering</h4>
+                                            <p class="text-sm text-muted">BRAC University, Dhaka, Bangladesh.
+                                                Highest
+                                                Distinction.</p>
+                                        </div>
+                                        <span class="status status-accepted">CGPA 3.93 / 4.00</span>
+                                    </div>
+                                    <p class="mt-4 text-sm"><strong class="font-semibold">Thesis:</strong> NFT-based
+                                        authentication for federated metaverses, supervised by <a class="link" href="https://www.bracu.ac.bd/about/people/md-sadek-ferdous-phd" target="_blank" rel="noopener">Dr. Md
+                                            Sadek Ferdous</a>
+                                        and
+                                        developed into a paper accepted at IEEE Blockchain 2026.</p>
+                                    <p class="mt-2 text-sm text-muted">Consistent A or A+ grades in core CSE and
+                                        mathematics courses.</p>
+                                    <p class="mt-4 text-sm font-semibold text-muted">Coursework</p>
+                                    <ul class="mt-2 flex flex-wrap gap-2">
+                                        <li class="chip">Programming Languages</li>
+                                        <li class="chip">Data Structures and Algorithms</li>
+                                        <li class="chip">Operating Systems</li>
+                                        <li class="chip">Blockchain and Cryptocurrency</li>
+                                        <li class="chip">Computer Architecture</li>
+                                        <li class="chip">Computer Networks</li>
+                                        <li class="chip">Database Systems</li>
+                                        <li class="chip">Theory of Computation</li>
+                                        <li class="chip">Compiler Design</li>
+                                        <li class="chip">Artificial Intelligence</li>
+                                        <li class="chip">Advanced Mathematics</li>
+                                    </ul>
+                                </article>
+                            </li>
+
+                            <li>
+                                <article class="card reveal p-6">
+                                    <p class="text-sm font-semibold text-accent">2014 – 2019</p>
+                                    <h4 class="font-display text-xl font-semibold leading-snug">School and college
+                                        in
+                                        Chattogram</h4>
+                                    <p class="mt-3 text-sm"><strong class="font-semibold">Higher Secondary
+                                            Certificate</strong>, Islamia Degree College (2017 – 2019).</p>
+                                    <p class="mt-1 text-sm"><strong class="font-semibold">Secondary School
+                                            Certificate</strong>, Halishahar Alhaj Mohabbat Ali City Corporation
+                                        High
+                                        School (2014 – 2016).</p>
+                                </article>
+                            </li>
+                        </ol>
+                    </section>
+
+                    <section id="experience" aria-labelledby="experience-title" class="px-5 py-14 sm:px-8 lg:px-12 lg:py-24 xl:px-16">
+                        <h3 id="experience-title" class="mt-14 font-display text-2xl font-semibold tracking-tight">
+                            Experience</h3>
+
+                        <h4 class="mt-6 text-sm font-semibold uppercase tracking-wide text-muted">Research
+                            experience</h4>
+                        <ul class="mt-3 space-y-4">
+                            <li class="card reveal p-6">
+                                <p class="text-sm font-semibold text-accent">2026 – present</p>
+                            
+                                <h4 class="font-display text-xl font-semibold leading-snug">
+                                    MSc Thesis Research
+                                </h4>
+                            
+                                <p class="text-sm text-muted">
+                                    Department of CSE, BRAC University. Supervisor:
+                                    <a class="link" href="https://www.bracu.ac.bd/about/people/s-m-taiabul-haque-phd" target="_blank"
+                                        rel="noopener">
+                                        Dr. S M Taiabul Haque
+                                    </a>
+                                </p>
+                            
+                                <ul class="mt-3 list-disc space-y-1.5 pl-5 text-sm text-muted marker:text-accent">
+                                    <li>
+                                        Investigating why employees deviate from organizational
+                                        security policies when formal requirements conflict with
+                                        workplace demands, practical constraints, or established
+                                        ways of carrying out everyday tasks.
+                                    </li>
+                            
+                                    <li>
+                                        Conducted preliminary exploratory interviews with software
+                                        and IT professionals to understand their experiences with
+                                        information sharing, client communication, and
+                                        security-related decisions in everyday work.
+                                    </li>
+                            
+                                    <li>
+                                        Reviewed research on security policy compliance, human
+                                        factors, usable security, and workplace security practices
+                                        to develop the theoretical and conceptual foundation
+                                        of the study.
+                                    </li>
+                            
+                                    <li>
+                                        Examining how employees understand and navigate formal
+                                        security requirements, including the informal practices
+                                        and workarounds that emerge when existing policies do not
+                                        adequately accommodate practical work situations.
+                                    </li>
+                            
+                                    <li>
+                                        Exploring how security managers and other organizational
+                                        decision-makers interpret, respond to, and manage policy
+                                        deviations and exceptions, including the organizational
+                                        expectations and workplace norms that shape these responses.
+                                    </li>
+                                </ul>
+                            </li>
+                        <li class="card reveal p-6" style="--d:.05s">
+                            <p class="text-sm font-semibold text-accent">2024 – 2025</p>
+                        
+                            <h4 class="font-display text-xl font-semibold leading-snug">
+                                BSc Thesis Research
+                            </h4>
+                        
+                            <p class="text-sm text-muted">
+                                Department of CSE, BRAC University. Supervisor:
+                                <a class="link" href="https://www.bracu.ac.bd/about/people/md-sadek-ferdous-phd" target="_blank" rel="noopener">
+                                    Dr. Md Sadek Ferdous
+                                </a>.
+                            </p>
+                        
+                            <ul class="mt-3 list-disc space-y-2 pl-5 text-sm text-muted marker:text-accent">
+                                <li>
+                                    Designed and developed an NFT-based authentication mechanism
+                                    for federated metaverses, exploring how blockchain-based
+                                    identity and authentication could support secure access
+                                    across interconnected virtual environments.
+                                </li>
+                        
+                                <li>
+                                    Contributed to the security analysis by developing the
+                                    threat model and formally verifying authentication
+                                    protocols using ProVerif to examine their security
+                                    properties.
+                                </li>
+                        
+                                <li>
+                                    Implemented a proof of concept integrating a Minecraft
+                                    Paper server, a Next.js and Node.js web application,
+                                    and MetaMask wallet authentication to demonstrate
+                                    how users could authenticate and gain access to
+                                    a metaverse environment.
+                                </li>
+                        
+                                <li>
+                                    Conducted a usability evaluation involving VR-based
+                                    interaction with the authentication mechanism, using
+                                    the System Usability Scale (SUS) and a custom user
+                                    experience questionnaire informed by ISO 9241-11
+                                    and Nielsen's usability heuristics.
+                                </li>
+                        
+                                <li>
+                                    Examined usability challenges arising from the
+                                    authentication workflow, particularly the interaction
+                                    between the VR environment and the external wallet
+                                    authentication process, highlighting the importance
+                                    of usability in designing secure metaverse systems.
+                                </li>
+                        
+                                <li>
+                                    Contributed to the preparation of the research manuscript,
+                                    which was accepted for publication at the IEEE
+                                    International Conference on Blockchain 2026.
+                                </li>
+                            </ul>
+                        
+                            <ul class="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-sm font-medium">
+                                <li>
+                                    <a class="link" href="https://hdl.handle.net/10361/26460" target="_blank" rel="noopener">
+                                        BSc thesis in the BRAC University repository
+                                        <span class="sr-only">(opens in a new tab)</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        </ul>
+
+                        <h4 class="mt-8 text-sm font-semibold uppercase tracking-wide text-muted">
+                            Teaching Experience
+                        </h4>
+                        
+                        <div class="card reveal mt-3 p-6">
+                            <p class="text-sm font-semibold text-accent">Oct 2023 – May 2025</p>
+                        
+                            <h4 class="font-display text-xl font-semibold leading-snug">
+                                Undergraduate Teaching Assistant (Student Tutor)
+                            </h4>
+                        
+                            <p class="text-sm text-muted">
+                                Department of CSE, BRAC University.
+                                <br>
+                                Courses: Algorithms (CSE221) and Discrete Mathematics (CSE230).
+                            </p>
+                        
+                            <ul class="mt-3 list-disc space-y-2 pl-5 text-sm text-muted marker:text-accent">
+                                <li>
+                                    Conducted tutorials and individual consultations,
+                                    supporting over 100 undergraduate students in
+                                    understanding concepts and developing problem-solving
+                                    skills in algorithms and discrete mathematics.
+                                </li>
+                        
+                                <li>
+                                    Prepared problem sets and assessment rubrics aligned
+                                    with course learning outcomes to reinforce conceptual
+                                    understanding and support structured learning.
+                                </li>
+                        
+                                <li>
+                                    Evaluated assignments and quizzes, providing constructive
+                                    feedback to help students identify gaps in their
+                                    understanding and improve their academic performance.
+                                </li>
+                        
+                                <li>
+                                    Collaborated with course instructors to facilitate
+                                    tutorials and hands-on learning activities, while
+                                    providing technical guidance and academic support
+                                    to students.
+                                </li>
+                            </ul>
+                        
+                            <div class="mt-6 border-t border-current/10 pt-5">
+                                <p class="text-sm font-semibold">
+                                    Teaching Philosophy
+                                </p>
+                        
+                                <p class="mt-2 text-sm text-muted">
+                                    My teaching approach begins with clearly defined learning
+                                    outcomes and connects instructional activities and
+                                    assessments to those objectives. I emphasize conceptual
+                                    understanding through guided problem-solving, collaborative
+                                    activities, and short exercises that encourage students
+                                    to reason through problems rather than rely solely on
+                                    memorization. I also aim to connect theoretical concepts
+                                    with practical applications, drawing on examples from
+                                    computer science and my research experience, including
+                                    user studies and the evaluation of interactive systems.
+                                </p>
+                            </div>
+                        
+                            <!-- Add a teaching statement link here only when the PDF is available. -->
+                        </div>
+                    </section>
+
+                    <section id="awards" aria-labelledby="awards-title" class="px-5 py-14 sm:px-8 lg:px-12 lg:py-24 xl:px-16">
+                        <h3 id="awards-title" class="mt-14 font-display text-2xl font-semibold tracking-tight">
+                            Honors and awards</h3>
+                        <ul class="mt-5 grid gap-4 sm:grid-cols-2">
+
+                            <li class="card reveal flex flex-col gap-3 p-6">
+                                <div class="flex items-center justify-between gap-3">
+                                    <span
+                                        class="grid h-11 w-11 place-items-center rounded-xl bg-accent text-on-accent"><svg
+                                            class="i" width="22" height="22" aria-hidden="true">
+                                            <use href="#i-award" />
+                                        </svg></span>
+                                    <span class="chip chip-accent">2026 – present</span>
+                                </div>
+                                <h4 class="font-display text-lg font-semibold leading-snug">100% Merit-Based
+                                    Graduate
+                                    Scholarship</h4>
+                                <p class="text-sm text-muted">A full tuition waiver for the MSc program, awarded for
+                                    academic merit and performance. My current CGPA in the program is 4.00 out of
+                                    4.00.
+                                </p>
+                                <p class="mt-auto border-t border-line/70 pt-3 text-xs text-muted">Awarded by BRAC
+                                    University</p>
+                            </li>
+
+                            <li class="card reveal flex flex-col gap-3 p-6" style="--d:.05s">
+                                <div class="flex items-center justify-between gap-3">
+                                    <span
+                                        class="grid h-11 w-11 place-items-center rounded-xl bg-accent text-on-accent"><svg
+                                            class="i" width="22" height="22" aria-hidden="true">
+                                            <use href="#i-cap" />
+                                        </svg></span>
+                                    <span class="chip chip-accent">June 2021 – Jan 2025</span>
+                                </div>
+                                <h4 class="font-display text-lg font-semibold leading-snug">100% BRAC Scholarship
+                                </h4>
+                                <p class="text-sm text-muted">Full tuition support across my BSc, awarded for
+                                    outstanding academic performance in undergraduate studies.</p>
+                                <p class="mt-auto border-t border-line/70 pt-3 text-xs text-muted">Awarded by BRAC
+                                    University</p>
+                            </li>
+
+                            <li class="card reveal flex flex-col gap-3 p-6">
+                                <div class="flex items-center justify-between gap-3">
+                                    <span
+                                        class="grid h-11 w-11 place-items-center rounded-xl bg-accent text-on-accent"><svg
+                                            class="i" width="22" height="22" aria-hidden="true">
+                                            <use href="#i-star" />
+                                        </svg></span>
+                                    <span class="chip chip-accent">9 of 11 semesters</span>
+                                </div>
+                                <h4 class="font-display text-lg font-semibold leading-snug">Vice Chancellor’s List
+                                </h4>
+                                <p class="text-sm text-muted">Recognition for a semester GPA between 3.90 and 4.00,
+                                    earned in nine of my eleven BSc semesters.</p>
+                                <p class="mt-auto border-t border-line/70 pt-3 text-xs text-muted">Awarded by BRAC
+                                    University</p>
+                            </li>
+
+                            <li class="card reveal flex flex-col gap-3 p-6" style="--d:.05s">
+                                <div class="flex items-center justify-between gap-3">
+                                    <span
+                                        class="grid h-11 w-11 place-items-center rounded-xl bg-accent text-on-accent"><svg
+                                            class="i" width="22" height="22" aria-hidden="true">
+                                            <use href="#i-trophy" />
+                                        </svg></span>
+                                    <span class="chip chip-accent">Jan 2025</span>
+                                </div>
+                                <h4 class="font-display text-lg font-semibold leading-snug">Graduated with Highest
+                                    Distinction</h4>
+                                <p class="text-sm text-muted">Graduated with a CGPA of 3.93 out of 4.00. The
+                                    distinction
+                                    is conferred for a BSc CGPA of 3.80 or above.</p>
+                                <p class="mt-auto border-t border-line/70 pt-3 text-xs text-muted">Conferred by BRAC
+                                    University</p>
+                            </li>
+                        </ul>
+                    </section>
+
+                    <section id="projects" aria-labelledby="projects-title" class="px-5 py-14 sm:px-8 lg:px-12 lg:py-24 xl:px-16">
+                        <h3 id="projects-title" class="mt-14 font-display text-2xl font-semibold tracking-tight">
+                            Technical projects</h3>
+                        <ul class="mt-5 grid gap-4 sm:grid-cols-2">
+
+                            <li class="card reveal flex flex-col p-6">
+                                <p class="text-sm font-semibold text-accent">2026</p>
+                                <h4 class="font-display text-lg font-semibold leading-snug">Chat Secretly:
+                                    cryptography-based secure messaging</h4>
+                                <p class="mt-2 grow text-sm text-muted">A team project implementing and analyzing
+                                    AES-128, DES, RSA, ECC, substitution, and double transposition ciphers, with a
+                                    Crypto Lab for encryption, key generation, and attack demonstrations.</p>
+                                <ul class="mt-3 flex flex-wrap gap-1.5">
+                                    <li class="chip">FastAPI</li>
+                                    <li class="chip">Python</li>
+                                    <li class="chip">SQLite</li>
+                                </ul>
+                                <p class="mt-3 text-sm font-medium"><a class="link"
+                                        href="https://github.com/RoaringRoyel/chat_secretly" target="_blank"
+                                        rel="noopener">Source on GitHub<span class="sr-only"> (opens in a new
+                                            tab)</span></a></p>
+                            </li>
+
+                            <li class="card reveal flex flex-col p-6" style="--d:.05s">
+                                <p class="text-sm font-semibold text-accent">2026</p>
+                                <h4 class="font-display text-lg font-semibold leading-snug">StreamPay: decentralized
+                                    payroll streaming</h4>
+                                <p class="mt-2 grow text-sm text-muted">Companies lock ETH for employees, and the
+                                    funds
+                                    unlock every second until fully withdrawn. Smart contracts are tested with
+                                    Foundry
+                                    and driven from a JavaScript front end.</p>
+                                <ul class="mt-3 flex flex-wrap gap-1.5">
+                                    <li class="chip">Solidity</li>
+                                    <li class="chip">Foundry</li>
+                                    <li class="chip">Ethers.js v6</li>
+                                </ul>
+                                <p class="mt-3 text-sm font-medium"><a class="link"
+                                        href="https://github.com/addshakib80/StreamPay" target="_blank"
+                                        rel="noopener">Source on GitHub<span class="sr-only"> (opens in a new
+                                            tab)</span></a></p>
+                            </li>
+
+                            <li class="card reveal flex flex-col p-6">
+                                <p class="text-sm font-semibold text-accent">2026</p>
+                                <h4 class="font-display text-lg font-semibold leading-snug">Medical image analysis
+                                    with
+                                    explainable AI</h4>
+                                <p class="mt-2 grow text-sm text-muted">A fine-tuned ResNet-50 that classifies chest
+                                    X-rays as normal or pneumonia, with Grad-CAM and Grad-CAM++ showing which
+                                    regions
+                                    drive each prediction.</p>
+                                <ul class="mt-3 flex flex-wrap gap-1.5">
+                                    <li class="chip">PyTorch</li>
+                                    <li class="chip">CNN</li>
+                                    <li class="chip">ResNet-50</li>
+                                </ul>
+                                <p class="mt-3 text-sm font-medium"><a class="link"
+                                        href="https://github.com/addshakib80/XAI-medical-image-analysis"
+                                        target="_blank" rel="noopener">Source on GitHub<span class="sr-only"> (opens
+                                            in a new
+                                            tab)</span></a></p>
+                            </li>
+
+                            <li class="card reveal flex flex-col p-6" style="--d:.05s">
+                                <p class="text-sm font-semibold text-accent">2026</p>
+                                <h4 class="font-display text-lg font-semibold leading-snug">Transformer-based PDF
+                                    summarization</h4>
+                                <p class="mt-2 grow text-sm text-muted">A pipeline with PDF text extraction,
+                                    map-reduce
+                                    chunking for long documents, BART summarization, and ROUGE-1, ROUGE-2, and
+                                    ROUGE-L
+                                    evaluation.</p>
+                                <ul class="mt-3 flex flex-wrap gap-1.5">
+                                    <li class="chip">BERT</li>
+                                    <li class="chip">BART</li>
+                                    <li class="chip">NLP</li>
+                                </ul>
+                                <p class="mt-3 text-sm font-medium"><a class="link"
+                                        href="https://github.com/addshakib80/NLP-pdf-summarizer" target="_blank"
+                                        rel="noopener">Source on GitHub<span class="sr-only"> (opens in a new
+                                            tab)</span></a></p>
+                            </li>
+
+                            <li class="card reveal flex flex-col p-6 sm:col-span-2">
+                                <p class="text-sm font-semibold text-accent">Fall 2023</p>
+                                <h4 class="font-display text-lg font-semibold leading-snug">Dkash: online
+                                    transaction
+                                    platform</h4>
+                                <p class="mt-2 grow text-sm text-muted">A team project covering requirements
+                                    analysis,
+                                    use-case modeling, system architecture, and interface design for a digital
+                                    transaction platform.</p>
+                                <ul class="mt-3 flex flex-wrap gap-1.5">
+                                    <li class="chip">MongoDB</li>
+                                    <li class="chip">Express.js</li>
+                                    <li class="chip">React</li>
+                                    <li class="chip">Node.js</li>
+                                </ul>
+                                <p class="mt-3 text-sm font-medium"><a class="link"
+                                        href="https://github.com/mutasinjawad/dKash" target="_blank"
+                                        rel="noopener">Source on GitHub<span class="sr-only"> (opens in a new
+                                            tab)</span></a></p>
+                            </li>
+                        </ul>
+                    </section>
+
+                    <section id="skills" aria-labelledby="skills-title" class="px-5 py-14 sm:px-8 lg:px-12 lg:py-24 xl:px-16">
+                    
+                        <h2 id="skills-title" class="reveal font-display text-3xl font-semibold tracking-tight sm:text-4xl">
+                            Technical Skills
+                        </h2>
+                    
+                        <p class="reveal mt-4 max-w-3xl text-[1.05rem] text-muted">
+                            Technical tools and technologies used across my academic projects,
+                            research, and software development work.
+                        </p>
+                    
+                        <dl class="card reveal mt-6 grid gap-x-8 gap-y-5 p-6
+                            sm:grid-cols-[11rem_minmax(0,1fr)] sm:p-7">
+                    
+                            <dt class="text-sm font-semibold text-muted">
+                                Programming Languages
+                            </dt>
+                            <dd>
+                                Python, C/C++, JavaScript, Solidity
+                            </dd>
+                    
+                            <dt class="text-sm font-semibold text-muted">
+                                Libraries and Frameworks
+                            </dt>
+                            <dd>
+                                React, Node.js, pandas, NumPy, Matplotlib, PyTorch
+                            </dd>
+                    
+                            <dt class="text-sm font-semibold text-muted">
+                                Security and Verification
+                            </dt>
+                            <dd>
+                                ProVerif, Threat Modeling, Formal Verification,
+                                Cryptography Fundamentals
+                            </dd>
+                    
+                            <dt class="text-sm font-semibold text-muted">
+                                Tools and Platforms
+                            </dt>
+                            <dd>
+                                Git, Linux, VS Code, PyCharm, MetaMask
+                            </dd>
+                    
+                        </dl>
+                    </section>
+
+                        <!-- <p class="mt-8 text-sm text-muted">References are available on request.</p>
+                          -->
+
+
+                    <!-- </div>
+                </section> -->
+
+                <!-- ===================== SELECTED CASE STUDIES ===================== -->
+                <!-- <section id="case-studies" aria-labelledby="case-title"
+                    class="px-5 py-14 sm:px-8 lg:px-12 lg:py-24 xl:px-16">
+                    <div class="max-w-4xl">
+
+                        <h2 id="case-title"
+                            class="reveal font-display text-3xl font-semibold tracking-tight sm:text-4xl">Selected case
+                            studies</h2>
+                        <p class="reveal mt-4 max-w-3xl text-[1.05rem] text-muted">Four projects told the way a UX study
+                            is told: the problem, the approach, what was found, and my role.</p>
+
+                        <div class="mt-10 space-y-10">
+
+                            <article id="case-nft" class="card reveal p-4 sm:p-6" aria-labelledby="case-nft-title">
+                               
+                                <div class="px-1 pb-2 pt-6 sm:px-2">
+                                    <p class="flex flex-wrap items-center gap-2"><span
+                                            class="chip chip-accent">Authentication and security protocols</span><span
+                                            class="status status-accepted">Accepted</span></p>
+                                    <h3 id="case-nft-title"
+                                        class="mt-3 font-display text-2xl font-semibold leading-snug tracking-tight">
+                                        NFT-based authentication for federated metaverses</h3>
+                                    <p class="mt-1 text-sm text-muted">BSc thesis, 2024 – 2025. Supervisor: Dr. Md Sadek
+                                        Ferdous. Group thesis with K. E. U. Hawak and M. Jawad.</p>
+                                    <p class="mt-4">A novel authentication mechanism based on NFTs, built to avoid the
+                                        usability and privacy limits of password-based and centralized logins across
+                                        federated metaverses.</p>
+
+                                    <dl class="mt-6 grid gap-x-8 gap-y-5 sm:grid-cols-2">
+                                        <div>
+                                            <dt class="text-sm font-semibold text-accent">The problem</dt>
+                                            <dd class="mt-1 text-sm text-muted">Traditional password-based and
+                                                centralized authentication has well-known usability and privacy limits.
+                                                Federated metaverses, where one identity has to work across platforms,
+                                                make those limits harder to ignore.</dd>
+                                        </div>
+                                        <div>
+                                            <dt class="text-sm font-semibold text-accent">The approach</dt>
+                                            <dd class="mt-1 text-sm text-muted">We designed the NFT-based mechanism,
+                                                built a threat model, and formally verified the protocols with ProVerif.
+                                                We then built a proof of concept: on a Minecraft Paper server in a
+                                                VR-based metaverse, gameplay access depends on NFT-based wallet
+                                                authentication, with a Next.js and Node.js front end and MetaMask.</dd>
+                                        </div>
+                                        <div>
+                                            <dt class="text-sm font-semibold text-accent">What we found</dt>
+                                            <dd class="mt-1 text-sm text-muted">Formal verification covers the protocol
+                                                side. The usability study, described in the next case study, covers the
+                                                human side.</dd>
+                                        </div>
+                                        <div>
+                                            <dt class="text-sm font-semibold text-accent">My role</dt>
+                                            <dd class="mt-1 text-sm text-muted">I contributed to the design and
+                                                implementation, planned and ran the usability evaluation, and led the
+                                                preparation of the paper.</dd>
+                                        </div>
+                                    </dl>
+
+                                    <ul class="mt-5 flex flex-wrap gap-2" aria-label="Methods and tools">
+                                        <li class="chip">Threat modeling</li>
+                                        <li class="chip">ProVerif</li>
+                                        <li class="chip">NFTs</li>
+                                        <li class="chip">MetaMask</li>
+                                        <li class="chip">Next.js and Node.js</li>
+                                    </ul>
+
+                                    <ul class="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-sm font-medium">
+                                        <li><a class="link" href="#pub-nft-auth">Read the paper</a></li>
+                                        <li><a class="link" data-dummy="Project code" href="https://github.com/MrKhawaja/NFT-Thesis"
+                                                target="_blank" rel="noopener">Code on GitHub<span class="sr-only">
+                                                    (opens in a new tab)</span></a></li>
+                                    </ul>
+                                </div>
+                            </article>
+
+                            <article id="case-vr" class="card reveal p-4 sm:p-6" aria-labelledby="case-vr-title">
+                                <figure class="figure-frame">
+                                    <div class="figure-placeholder" aria-hidden="true">
+                                        <svg class="i" width="44" height="44">
+                                            <use href="#i-gauge" />
+                                        </svg>
+                                        <span>Figure placeholder. Add assets/case-vr-usability.jpg</span>
+                                    </div>
+                                    <img src="assets/case-vr-usability.jpg"
+                                        alt="A participant using the authentication prototype in VR" width="1600"
+                                        height="900" loading="lazy" decoding="async" onerror="this.remove()">
+                                </figure>
+
+                                <div class="px-1 pb-2 pt-6 sm:px-2">
+                                    <p class="flex flex-wrap items-center gap-2"><span
+                                            class="chip chip-accent">Usability evaluation</span><span
+                                            class="status status-accepted">Accepted</span></p>
+                                    <h3 id="case-vr-title"
+                                        class="mt-3 font-display text-2xl font-semibold leading-snug tracking-tight">
+                                        Usability study of the mechanism in VR</h3>
+                                    <p class="mt-1 text-sm text-muted">Part of the BSc thesis, 2024 – 2025. Run on a
+                                        Meta Quest 3.</p>
+                                    <p class="mt-4">A user study of how people experience NFT-based authentication
+                                        inside an immersive VR environment, and where they get stuck.</p>
+
+                                    <dl class="mt-6 grid gap-x-8 gap-y-5 sm:grid-cols-2">
+                                        <div>
+                                            <dt class="text-sm font-semibold text-accent">The question</dt>
+                                            <dd class="mt-1 text-sm text-muted">Does the mechanism make sense to the
+                                                people who have to use it, and where do they get stuck?</dd>
+                                        </div>
+                                        <div>
+                                            <dt class="text-sm font-semibold text-accent">The approach</dt>
+                                            <dd class="mt-1 text-sm text-muted">I planned and carried out the evaluation
+                                                in VR on a Meta Quest 3. I measured usability with the System Usability
+                                                Scale and a custom UX survey grounded in ISO 9241-11 and Nielsen’s
+                                                heuristics, then analyzed the participants’ feedback.</dd>
+                                        </div>
+                                        <div>
+                                            <dt class="text-sm font-semibold text-accent">What I found</dt>
+                                            <dd class="mt-1 text-sm text-muted">Beyond the scores, several participants
+                                                found switching between the VR headset and a desktop wallet confusing,
+                                                even though the authentication worked as intended.</dd>
+                                        </div>
+                                        <div>
+                                            <dt class="text-sm font-semibold text-accent">What it taught me</dt>
+                                            <dd class="mt-1 text-sm text-muted">A security mechanism can be technically
+                                                sound and still fail to make sense to the person using it. This is where
+                                                my interest moved from protocols to people.</dd>
+                                        </div>
+                                    </dl>
+
+                                    <ul class="mt-5 flex flex-wrap gap-2" aria-label="Methods and tools">
+                                        <li class="chip">System Usability Scale</li>
+                                        <li class="chip">Custom UX survey</li>
+                                        <li class="chip">ISO 9241-11</li>
+                                        <li class="chip">Nielsen’s heuristics</li>
+                                        <li class="chip">Meta Quest 3</li>
+                                    </ul>
+
+                                    <ul class="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-sm font-medium">
+                                        <li><a class="link" href="#pub-nft-auth">Read the paper</a></li>
+                                    </ul>
+                                </div>
+                            </article>
+
+                            <article id="case-tea" class="card reveal p-4 sm:p-6" aria-labelledby="case-tea-title">
+                               
+
+                                <div class="px-1 pb-2 pt-6 sm:px-2">
+                                    <p class="flex flex-wrap items-center gap-2"><span class="chip chip-accent">Usable
+                                            privacy and security</span><span class="chip">Course project</span></p>
+                                    <h3 id="case-tea-title"
+                                        class="mt-3 font-display text-2xl font-semibold leading-snug tracking-tight">
+                                        Privacy and security of tea garden workers in Bangladesh</h3>
+                                    <p class="mt-1 text-sm text-muted">Team project, Usable Security and Privacy, BRAC
+                                        University.</p>
+                                    <p class="mt-4">A team project on the privacy and security concerns of a community
+                                        that is rarely represented in usable privacy research.</p>
+
+                                    <dl class="mt-6 grid gap-x-8 gap-y-5 sm:grid-cols-2">
+                                        <div>
+                                            <dt class="text-sm font-semibold text-accent">The question</dt>
+                                            <dd class="mt-1 text-sm text-muted">What do privacy and security look like
+                                                for people who have little ability to opt out or push back?</dd>
+                                        </div>
+                                        <div>
+                                            <dt class="text-sm font-semibold text-accent">The approach</dt>
+                                            <dd class="mt-1 text-sm text-muted">As a team, we looked at the privacy and
+                                                security concerns of tea garden workers in Bangladesh for the Usable
+                                                Security and Privacy course.</dd>
+                                        </div>
+                                        <div class="sm:col-span-2">
+                                            <dt class="text-sm font-semibold text-accent">What it changed for me</dt>
+                                            <dd class="mt-1 text-sm text-muted">It made me question the assumption that
+                                                users always have a meaningful choice about their privacy, and made me
+                                                more interested in how people’s circumstances shape their security and
+                                                privacy practices.</dd>
+                                        </div>
+                                    </dl>
+
+                                   
+                                </div>
+                            </article>
+
+                            <article id="case-policy" class="card reveal p-4 sm:p-6"
+                                aria-labelledby="case-policy-title">
+                                
+                                <div class="px-1 pb-2 pt-6 sm:px-2">
+                                    <p class="flex flex-wrap items-center gap-2"><span
+                                            class="chip chip-accent">Interview studies</span><span
+                                            class="status status-draft">In preparation</span></p>
+                                    <h3 id="case-policy-title"
+                                        class="mt-3 font-display text-2xl font-semibold leading-snug tracking-tight">
+                                        Security policy violations in organizational workflows</h3>
+                                    <p class="mt-1 text-sm text-muted">MSc thesis, 2026 to present. Supervisor: <a class="link" href="https://www.bracu.ac.bd/about/people/s-m-taiabul-haque-phd" target="_blank" rel="noopener">Dr. S M
+                                        Taiabul Haque</a></p>
+                                    <p class="mt-4">An interview study of why software and IT employees in Bangladesh
+                                        work around security policies, and what those workarounds say about the
+                                        policies.</p>
+
+                                    <dl class="mt-6 grid gap-x-8 gap-y-5 sm:grid-cols-2">
+                                        <div>
+                                            <dt class="text-sm font-semibold text-accent">The problem</dt>
+                                            <dd class="mt-1 text-sm text-muted">Formal security expectations and
+                                                everyday work do not always fit together. I want to understand how they
+                                                interact for software and IT employees in Bangladesh, rather than
+                                                treating a violation as a user failure.</dd>
+                                        </div>
+                                        <div>
+                                            <dt class="text-sm font-semibold text-accent">What I have done so far</dt>
+                                            <dd class="mt-1 text-sm text-muted">I have run exploratory interviews about
+                                                information sharing, client communication, and other security-related
+                                                practices. I also reviewed the literature on security policy compliance,
+                                                workplace security practices, and usable security, and wrote the
+                                                background and related work for the study.</dd>
+                                        </div>
+                                        <div class="sm:col-span-2">
+                                            <dt class="text-sm font-semibold text-accent">What I want to find out</dt>
+                                            <dd class="mt-1 text-sm text-muted">Why workarounds occur, how security
+                                                practices are learned among colleagues, and where formal policies do not
+                                                fit the realities of work. I connect these findings to local norms of
+                                                work in Bangladesh.</dd>
+                                        </div>
+                                    </dl>
+
+                                    <ul class="mt-5 flex flex-wrap gap-2" aria-label="Methods">
+                                        <li class="chip">Semi-structured interviews</li>
+                                        <li class="chip">Reflexive thematic analysis</li>
+                                        <li class="chip">Organizational security</li>
+                                    </ul>
+
+                                    <ul class="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-sm font-medium">
+                                        <li><a class="link" href="#pub-policy-violations">Manuscript in preparation</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </article>
+
+                        </div>
+                    </div>
+                </section> -->
+
+
+
+                <section id="case-studies" aria-labelledby="case-title" class="px-5 py-14 sm:px-8 lg:px-12 lg:py-24 xl:px-16">
+                
+                    <div class="max-w-4xl">
+                
+                        <h2 id="case-title" class="reveal font-display text-3xl font-semibold tracking-tight sm:text-4xl">
+                            Selected Case Studies
+                        </h2>
+                        
+                        <p class="reveal mt-4 max-w-3xl text-[1.05rem] text-muted">
+                            These case studies explore two aspects of human-centered security research:
+                            designing and evaluating secure authentication mechanisms, and understanding
+                            how security policies interact with everyday workplace practices. They
+                            highlight my research approach, methods, contributions, and ongoing questions.
+                        </p>
+                
+                        <div class="mt-10 space-y-10">
+                
+                            <!-- CASE STUDY 1: BSc THESIS AND ACCEPTED IEEE PAPER -->
+                            <article id="case-nft" class="card reveal p-4 sm:p-6" aria-labelledby="case-nft-title">
+                
+                                <div class="px-1 pb-2 pt-4 sm:px-2">
+                
+                                    <p class="flex flex-wrap items-center gap-2">
+                                        <!-- <span class="chip chip-accent">Usable Security</span>
+                                        <span class="chip">Authentication</span> -->
+                                        <span class="status status-accepted">Accepted for publication</span>
+                                    </p>
+                
+                                    <h3 id="case-nft-title"
+                                        class="mt-3 font-display text-2xl font-semibold leading-snug tracking-tight">
+                                        A Secure Authentication Mechanism for Federated Metaverses Using NFTs
+                                    </h3>
+                
+                                    <p class="mt-2 text-sm text-muted">
+                                        BSc thesis, 2024–2025. Department of CSE, BRAC University.
+                                        Supervisor:
+                                        <a class="link" href="https://www.bracu.ac.bd/about/people/md-sadek-ferdous-phd" target="_blank"
+                                            rel="noopener">
+                                            Dr. Md Sadek Ferdous
+                                        </a>.
+                                        Group thesis with K. E. U. Hawak and M. Jawad.
+                                    </p>
+                
+                                    <p class="mt-4">
+                                        Federated metaverses create authentication challenges when
+                                        users need to access interconnected virtual environments.
+                                        This project investigated an NFT-based authentication
+                                        mechanism intended to support cross-platform access while
+                                        addressing security, privacy, and usability considerations.
+                                        The resulting research paper has been accepted for
+                                        publication at the IEEE International Conference on
+                                        Blockchain 2026.
+                                    </p>
+                
+                                    <!-- TECHNICAL DESIGN AND SECURITY -->
+                                    <div class="mt-8 border-t border-current/10 pt-6">
+                
+                                        <p class="flex flex-wrap items-center gap-2">
+                                            <span class="chip chip-accent">01</span>
+                                            <span class="text-sm font-semibold text-accent">
+                                                Technical Design and Security Verification
+                                            </span>
+                                        </p>
+                
+                                        <h4 class="mt-3 font-display text-xl font-semibold leading-snug">
+                                            Designing and verifying NFT-based authentication
+                                        </h4>
+                
+                                        <figure class="figure-frame mt-5"
+                                            style="width: 70%; max-height: 320px; overflow: hidden; margin-left: auto; margin-right: auto;">
+                                            <div class="figure-placeholder" aria-hidden="true">
+                                                <svg class="i" width="44" height="44">
+                                                    <use href="#i-shield" />
+                                                </svg>
+                                                <span>
+                                                    Add a system architecture or authentication
+                                                    workflow diagram.
+                                                </span>
+                                            </div>
+                                            <img src="assets/case-nft-authentication.jpg"
+                                                alt="System architecture or authentication workflow for the NFT-based federated metaverse authentication mechanism"
+                                                width="1600" height="900" loading="lazy" decoding="async" onerror="this.remove()">
+                                        </figure>
+                
+                                        <dl class="mt-6 grid gap-x-8 gap-y-5 sm:grid-cols-2">
+                
+                                            <div>
+                                                <dt class="text-sm font-semibold text-accent">
+                                                    The challenge
+                                                </dt>
+                                                <dd class="mt-1 text-sm text-muted">
+                                                    Authentication across federated virtual
+                                                    environments requires a mechanism that
+                                                    connects users' identities and access rights
+                                                    without relying entirely on conventional
+                                                    password-based or centralized approaches.
+                                                </dd>
+                                            </div>
+                
+                                            <div>
+                                                <dt class="text-sm font-semibold text-accent">
+                                                    The approach
+                                                </dt>
+                                                <dd class="mt-1 text-sm text-muted">
+                                                    Contributed to the authentication mechanism
+                                                    and threat model, and formally verified the
+                                                    protocols using ProVerif. Implemented a proof
+                                                    of concept using a Minecraft Paper server,
+                                                    a Next.js and Node.js frontend, and MetaMask
+                                                    wallet integration.
+                                                </dd>
+                                            </div>
+                
+                                            <div>
+                                                <dt class="text-sm font-semibold text-accent">
+                                                    Technical evaluation
+                                                </dt>
+                                                <dd class="mt-1 text-sm text-muted">
+                                                    Formal protocol verification was used to
+                                                    examine security properties. The working
+                                                    prototype demonstrated the authentication
+                                                    flow in a virtual environment.
+                                                </dd>
+                                            </div>
+                
+                                            <div>
+                                                <dt class="text-sm font-semibold text-accent">
+                                                    My contribution
+                                                </dt>
+                                                <dd class="mt-1 text-sm text-muted">
+                                                    Contributed to the system design and
+                                                    implementation, threat modeling, and
+                                                    formal verification work as part of the
+                                                    thesis team.
+                                                </dd>
+                                            </div>
+                
+                                        </dl>
+                
+                                        <ul class="mt-5 flex flex-wrap gap-2" aria-label="Technical research topics">
+                                            <li class="chip">NFT-based Authentication</li>
+                                            <li class="chip">Threat Modeling</li>
+                                            <li class="chip">Formal Verification</li>
+                                            <li class="chip">ProVerif</li>
+                                            <li class="chip">MetaMask</li>
+                                        </ul>
+                
+                                    </div>
+                
+                                    <!-- USABILITY STUDY -->
+                                    <div class="mt-8 border-t border-current/10 pt-6">
+                
+                                        <p class="flex flex-wrap items-center gap-2">
+                                            <span class="chip chip-accent">02</span>
+                                            <span class="text-sm font-semibold text-accent">
+                                                Usability Study and Evaluation
+                                            </span>
+                                        </p>
+                
+                                        <h4 class="mt-3 font-display text-xl font-semibold leading-snug">
+                                            Evaluating authentication in an immersive VR environment
+                                        </h4>
+                                        
+                                        <figure class="figure-frame mt-5" style="width: 85%; max-height: 320px; overflow: hidden; margin-left: auto; margin-right: auto">
+                                            <div class="figure-placeholder" aria-hidden="true">
+                                                <svg class="i" width="44" height="44">
+                                                    <use href="#i-gauge" />
+                                                </svg>
+                                                <span>
+                                                    Add an image of the VR prototype or
+                                                    usability evaluation setup.
+                                                </span>
+                                            </div>
+                                            <img src="assets/case-vr-usability.jpg"
+                                                alt="VR-based usability evaluation of the NFT authentication prototype using a Meta Quest 3"
+                                                width="1600" height="900" loading="lazy" decoding="async" onerror="this.remove()">
+                                        </figure>
+                
+                                        <dl class="mt-6 grid gap-x-8 gap-y-5 sm:grid-cols-2">
+                
+                                            <div>
+                                                <dt class="text-sm font-semibold text-accent">
+                                                    The research question
+                                                </dt>
+                                                <dd class="mt-1 text-sm text-muted">
+                                                    How usable is the authentication mechanism
+                                                    in an immersive environment, and what
+                                                    difficulties do users encounter when
+                                                    completing the authentication process?
+                                                </dd>
+                                            </div>
+                
+                                            <div>
+                                                <dt class="text-sm font-semibold text-accent">
+                                                    The approach
+                                                </dt>
+                                                <dd class="mt-1 text-sm text-muted">
+                                                    Planned and conducted a usability evaluation
+                                                    using a Meta Quest 3. Assessed usability
+                                                    through the System Usability Scale (SUS)
+                                                    and a custom UX questionnaire informed by
+                                                    ISO 9241-11 and Nielsen's heuristics.
+                                                </dd>
+                                            </div>
+                
+                                            <div>
+                                                <dt class="text-sm font-semibold text-accent">
+                                                    What we observed
+                                                </dt>
+                                                <dd class="mt-1 text-sm text-muted">
+                                                    Some participants found switching between
+                                                    the VR headset and a desktop wallet
+                                                    confusing. This highlighted a usability
+                                                    challenge in coordinating interactions
+                                                    across immersive and conventional interfaces.
+                                                </dd>
+                                            </div>
+                
+                                            <div>
+                                                <dt class="text-sm font-semibold text-accent">
+                                                    Research takeaway
+                                                </dt>
+                                                <dd class="mt-1 text-sm text-muted">
+                                                    Evaluating security mechanisms requires
+                                                    examining not only their technical
+                                                    properties, but also how people understand
+                                                    and interact with them in practice.
+                                                </dd>
+                                            </div>
+                
+                                        </dl>
+                
+                                        <ul class="mt-5 flex flex-wrap gap-2" aria-label="Usability research methods">
+                                            <li class="chip">Usability Evaluation</li>
+                                            <li class="chip">System Usability Scale</li>
+                                            <li class="chip">User Experience</li>
+                                            <li class="chip">Virtual Reality</li>
+                                            <li class="chip">Meta Quest 3</li>
+                                        </ul>
+                
+                                    </div>
+                
+                                    <!-- PUBLICATION AND THESIS LINKS -->
+                                    <!-- <ul class="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-sm font-medium">
+                                        <li>
+                                            <a class="link" href="#pub-nft-auth">
+                                                View publication details
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="link" href="https://hdl.handle.net/10361/26460" target="_blank" rel="noopener">
+                                                Read BSc thesis
+                                                <span class="sr-only">(opens in a new tab)</span>
+                                            </a>
+                                        </li>
+                                         <li>
+                                            <a class="link" href="https://github.com/MrKhawaja/NFT-Thesis" target="_blank"
+                                                rel="noopener">
+                                                Project code on GitHub
+                                                <span class="sr-only">(opens in a new tab)</span>
+                                            </a>
+                                        </li>
+                                    </ul> -->
+                
+                                </div>
+                            </article>
+                
+                
+                            <!-- CASE STUDY 2: ONGOING MSC THESIS -->
+                            <article id="case-policy" class="card reveal p-4 sm:p-6" aria-labelledby="case-policy-title">
+                
+                                <div class="px-1 pb-2 pt-4 sm:px-2">
+                
+                                    <p class="flex flex-wrap items-center gap-2">
+                                        <!-- <span class="chip chip-accent">Usable Security</span>
+                                        <span class="chip">Organizational Security</span> -->
+                                        <span class="status status-draft">Ongoing research</span>
+                                    </p>
+                
+                                    <h3 id="case-policy-title"
+                                        class="mt-3 font-display text-2xl font-semibold leading-snug tracking-tight">
+                                        Negotiating Security in Everyday Organizational Work: How Security Policy Deviations and Exceptions Are Interpreted and
+                                        Managed in Bangladesh
+                                    </h3>
+                
+                                    <p class="mt-2 text-sm text-muted">
+                                        MSc thesis research, 2026–present. Department of CSE,
+                                        BRAC University. Supervisor:
+                                        <a class="link" href="https://www.bracu.ac.bd/about/people/s-m-taiabul-haque-phd"
+                                            target="_blank" rel="noopener">
+                                            Dr. S M Taiabul Haque
+                                        </a>.
+                                    </p>
+                
+                                    <p class="mt-4">
+                                        Organizational security policies prescribe how employees
+                                        should handle information, communicate with clients,
+                                        and protect organizational assets. In everyday work,
+                                        however, formal requirements may conflict with practical
+                                        constraints, workplace expectations, and established
+                                        ways of getting things done. My MSc research investigates
+                                        how security policy deviations and exceptions emerge
+                                        in organizational workflows, and how these practices
+                                        are understood and managed in the Bangladeshi context.
+                                    </p>
+                
+                                    <!-- RESEARCH CONTEXT -->
+                                    <div class="mt-8 border-t border-current/10 pt-6">
+                
+                                        <p class="text-sm font-semibold text-accent">
+                                            01 · Research problem
+                                        </p>
+                
+                                        <h4 class="mt-3 font-display text-xl font-semibold leading-snug">
+                                            Understanding security in everyday work
+                                        </h4>
+                
+                                        <p class="mt-3 text-sm text-muted">
+                                            Rather than treating every departure from a security policy as individual carelessness, this research examines the
+                                            organizational and practical circumstances in which such deviations occur. It explores how employees navigate formal
+                                            security requirements alongside everyday work demands, how informal practices develop, and how policy deviations and
+                                            exceptions are interpreted, negotiated, and managed within organizations.
+                                        </p>
+                
+                                    </div>
+                
+                                    <!-- RESEARCH PROGRESS -->
+                                    <div class="mt-8 border-t border-current/10 pt-6">
+                
+                                        <p class="text-sm font-semibold text-accent">
+                                            02 · Work completed so far
+                                        </p>
+                
+                                        <h4 class="mt-3 font-display text-xl font-semibold leading-snug">
+                                            Preliminary interviews and literature review
+                                        </h4>
+                
+                                        <dl class="mt-5 grid gap-x-8 gap-y-5 sm:grid-cols-2">
+                
+                                            <div>
+                                                <dt class="text-sm font-semibold text-accent">
+                                                    Exploratory interviews
+                                                </dt>
+                                                <dd class="mt-1 text-sm text-muted">
+                                                    Conducted preliminary exploratory
+                                                    semi-structured interviews with software
+                                                    and IT professionals to understand
+                                                    information-sharing practices, client
+                                                    communication, and security-related
+                                                    decisions in everyday work.
+                                                </dd>
+                                            </div>
+                
+                                            <div>
+                                                <dt class="text-sm font-semibold text-accent">
+                                                    Literature review
+                                                </dt>
+                                                <dd class="mt-1 text-sm text-muted">
+                                                    Reviewed research on security policy
+                                                    compliance, workplace security practices,
+                                                    usable security, and human factors to
+                                                    develop the study's research framing.
+                                                </dd>
+                                            </div>
+                
+                                            <div class="sm:col-span-2">
+                                                <dt class="text-sm font-semibold text-accent">
+                                                    Current stage
+                                                </dt>
+                                                <dd class="mt-1 text-sm text-muted">
+                                                    The research is currently at the framing and
+                                                    exploratory stage. Building on preliminary work
+                                                    and the literature review, I am refining the
+                                                    research questions and examining how formal
+                                                    security requirements interact with practical
+                                                    constraints, informal workplace norms, and
+                                                    organizational expectations. Further empirical
+                                                    investigation is part of the ongoing MSc thesis.
+                                                </dd>
+                                            </div>
+                
+                                        </dl>
+                
+                                    </div>
+                
+                                    <!-- RESEARCH QUESTIONS -->
+                                    <div class="mt-8 border-t border-current/10 pt-6">
+                
+                                        <p class="text-sm font-semibold text-accent">
+                                            03 · Research direction
+                                        </p>
+                
+                                        <h4 class="mt-3 font-display text-xl font-semibold leading-snug">
+                                            What I aim to investigate
+                                        </h4>
+                
+                                        <ul class="mt-4 list-disc space-y-2 pl-5 text-sm text-muted marker:text-accent">
+                                            <!-- <li>Why do employees deviate from formal security policies when those policies conflict with
+                                                practical work requirements?</li>
+                                            <li>How do employees learn, share, and negotiate informal security practices within their
+                                                organizations?</li>
+                                            <li>How do security managers and other organizational actors interpret and respond to policy
+                                                deviations and exceptions?</li>
+                                            <li>How do organizational context and workplace norms in Bangladesh shape security
+                                                practices?</li> -->
+
+
+                                            <li>Under what circumstances do employees deviate from formal security policies when those policies conflict with practical
+                                            work requirements?</li>
+                                            
+                                            <li>How do informal security practices emerge, evolve, and become accepted within organizational workflows?</li>
+                                            <li>How do employees and other organizational actors interpret, negotiate, and respond to security policy deviations and
+                                            exceptions?</li>
+                                            
+                                            <li>How do organizational expectations, workplace norms, and contextual factors in Bangladesh shape these practices?</li>
+                                        </ul>
+                
+                                    </div>
+                
+                                    <!-- RESEARCH THEMES -->
+                                    <ul class="mt-6 flex flex-wrap gap-2" aria-label="Research topics">
+                                        <li class="chip">Usable Security</li>
+                                        <li class="chip">Security Policy Compliance</li>
+                                        <li class="chip">Workplace Security</li>
+                                        <li class="chip">Human Factors</li>
+                                        <li class="chip">Organizational Practices</li>
+                                    </ul>
+                
+                                </div>
+                            </article>
+                
+                        </div>
+                    </div>
+                </section>
+
+            </main>
+
+            <footer class="border-t border-line/70 px-5 py-8 text-sm text-muted sm:px-8 lg:px-12 xl:px-16">
+                <div class="flex max-w-4xl flex-wrap items-center justify-between gap-3">
+                    <p>© 2026 Mohammed Shakib Hossain. Last updated September 2026.</p>
+                    <a class="link no-print font-medium" href="#main">Back to top</a>
+                </div>
+            </footer>
+
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

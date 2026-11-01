@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 100" role="img" aria-label="Signature, placeholder">
+  <path d="M14 70 Q30 20 46 60 T78 55 Q90 30 100 60 T130 40 Q145 15 158 58 Q168 78 182 50 Q196 22 210 55 Q222 75 240 45 Q252 25 266 52 Q276 68 300 40"
+        fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <line x1="10" y1="86" x2="230" y2="86" stroke="currentColor" stroke-width="1.5" opacity="0.35"/>
+</svg>

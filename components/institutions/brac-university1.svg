@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" role="img" aria-label="BRAC University logo, placeholder">
+  <rect width="160" height="160" rx="24" fill="#1F5FA8"/>
+  <path d="M30 62 80 34l50 28z" fill="#fff"/>
+  <g fill="#fff">
+    <rect x="38" y="68" width="14" height="42" rx="2"/>
+    <rect x="62" y="68" width="14" height="42" rx="2"/>
+    <rect x="86" y="68" width="14" height="42" rx="2"/>
+    <rect x="110" y="68" width="12" height="42" rx="2"/>
+    <rect x="30" y="116" width="100" height="12" rx="3"/>
+  </g>
+  <text x="80" y="150" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#fff" opacity="0.85">PLACEHOLDER LOGO</text>
+</svg>

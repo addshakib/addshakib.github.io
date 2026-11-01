@@ -1,0 +1,576 @@
+/* ==========================================================================
+   STYLE.CSS
+   Tailwind (loaded from the Play CDN in index.html) handles layout, spacing
+   and typography. This file holds what Tailwind does not:
+
+     1. Color tokens (light and dark) that the Tailwind config points to
+     2. Page-load handling, scroll-snapping and smooth scrolling
+     3. Animated background and reveal-on-scroll animations
+     4. A few reusable components (cards, chips, buttons, timeline, figures)
+     5. Accessibility helpers, print styles
+
+   To change the colors of the whole site, edit section 1.
+   ========================================================================== */
+
+
+/* ---------- 1. Color tokens ----------
+   Written as "R G B" so Tailwind can add transparency (for example bg-surface/70).
+
+   A deliberately restrained "paper and ink" palette: an off-white page, near-black
+   text, and exactly one muted accent (a desaturated ink-blue) used only for links,
+   buttons and small highlights — never as a background fill or a gradient. This is
+   the palette most personal academic sites actually use, and it's the single
+   biggest lever for not reading as an AI-generated template. */
+
+:root {
+    color-scheme: light;
+
+    --c-paper: 250 249 246;
+    /* page background: warm off-white, like paper */
+    --c-surface: 255 255 255;
+    /* cards: plain white, no blur or transparency */
+    --c-ink: 28 28 26;
+    /* main text: near-black */
+    --c-muted: 96 94 88;
+    /* secondary text: warm gray */
+    --c-line: 223 219 210;
+    /* borders: light warm gray */
+    --c-accent: 35 63 90;
+    /* links, buttons: one muted ink-blue, nothing else */
+    --c-on-accent: 255 255 255;
+    /* text on top of the accent color */
+    --c-soft: 229 233 236;
+    /* light neutral tint, used behind badges/icons */
+    --c-warn: 138 94 24;
+    /* "in preparation" color: muted ochre, not orange */
+    --c-warn-soft: 240 231 214;
+}
+
+.dark {
+    color-scheme: dark;
+
+    --c-paper: 19 19 17;
+    /* near-black, warm-tinted, not pure #000 */
+    --c-surface: 28 28 25;
+    --c-ink: 232 230 224;
+    /* off-white text */
+    --c-muted: 158 156 148;
+    --c-line: 58 57 52;
+    --c-accent: 145 173 204;
+    /* the same ink-blue, lightened for contrast */
+    --c-on-accent: 16 16 14;
+    --c-soft: 35 46 57;
+    --c-warn: 212 168 92;
+    --c-warn-soft: 54 44 24;
+}
+
+
+/* ---------- 2. Page load, scrolling, snapping ---------- */
+
+/* Tailwind's Play CDN builds its styles in the browser. Keep the page invisible
+   for a split second so nobody sees unstyled text. script.js adds "ready". */
+.js body {
+    opacity: 0;
+}
+
+.js.ready body {
+    opacity: 1;
+    transition: opacity 0.35s ease;
+}
+
+html {
+    scroll-padding-top: 4.5rem;
+    /* room for the sticky section bar on phones */
+    -webkit-text-size-adjust: 100%;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    html {
+        scroll-behavior: smooth;
+    }
+}
+
+body {
+    text-rendering: optimizeLegibility;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* On large screens each section settles neatly into place as you scroll.
+   "proximity" means it only snaps when you stop near a section start,
+   so long sections can still be read without fighting the scroll. */
+@media (min-width: 1024px) and (prefers-reduced-motion: no-preference) {
+    html {
+        scroll-padding-top: 0;
+        scroll-snap-type: y proximity;
+    }
+
+    main>section {
+        scroll-snap-align: start;
+    }
+}
+
+::selection {
+    background: rgb(var(--c-accent));
+    color: rgb(var(--c-on-accent));
+}
+
+
+/* ---------- 3. Background and reveal animation ----------
+   The page background is intentionally plain: a flat paper color, no gradient
+   blobs, no blur, no dot-grid. The <div class="ambient"> and its three <span>
+   children in index.html are left in place (harmless) but are no longer styled
+   into a decorative effect — this rule just keeps the page background color
+   consistent underneath everything. */
+
+.ambient {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background: rgb(var(--c-paper));
+    pointer-events: none;
+}
+
+/* Content fades up as it scrolls into view (script.js adds "is-visible") */
+.js .reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+    transition-delay: var(--d, 0s);
+}
+
+.js .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .js .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
+
+
+/* ---------- 4. Reusable components ---------- */
+
+.card {
+    border: 1px solid rgb(var(--c-line));
+    border-radius: 0.5rem;
+    background: rgb(var(--c-surface));
+}
+
+.chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.2rem 0.65rem;
+    border: 1px solid rgb(var(--c-line));
+    border-radius: 0.3rem;
+    background: rgb(var(--c-surface));
+    font-size: 0.75rem;
+    font-weight: 500;
+    line-height: 1.4;
+    color: rgb(var(--c-muted));
+}
+
+.chip-accent {
+    border-color: transparent;
+    background: rgb(var(--c-soft));
+    font-weight: 600;
+    color: rgb(var(--c-accent));
+}
+
+.status {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.1rem 0.65rem;
+    border: 1.5px solid transparent;
+    border-radius: 0.3rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.status-accepted {
+    background: rgb(var(--c-accent));
+    color: rgb(var(--c-on-accent));
+}
+
+.status-draft {
+    border-color: rgb(var(--c-warn));
+    background: rgb(var(--c-warn-soft));
+    color: rgb(var(--c-warn));
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1.15rem;
+    border: 1px solid transparent;
+    border-radius: 0.4rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    line-height: 1.25;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s, transform 0.2s, filter 0.2s;
+}
+
+.btn-primary {
+    background: rgb(var(--c-accent));
+    color: rgb(var(--c-on-accent));
+}
+
+.btn-primary:hover {
+    filter: brightness(1.08);
+    transform: translateY(-1px);
+}
+
+.btn-ghost {
+    border-color: rgb(var(--c-line));
+    background: rgb(var(--c-surface));
+    color: rgb(var(--c-ink));
+}
+
+.btn-ghost:hover {
+    border-color: rgb(var(--c-accent));
+    color: rgb(var(--c-accent));
+}
+
+.icon-btn {
+    display: grid;
+    place-items: center;
+    width: 2.4rem;
+    height: 2.4rem;
+    border: 1px solid rgb(var(--c-line));
+    border-radius: 0.4rem;
+    background: rgb(var(--c-surface));
+    color: rgb(var(--c-ink));
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s, transform 0.2s;
+}
+
+.icon-btn:hover {
+    border-color: rgb(var(--c-accent));
+    background: rgb(var(--c-accent));
+    color: rgb(var(--c-on-accent));
+    transform: translateY(-2px);
+}
+
+/* Links inside sentences */
+.link {
+    color: rgb(var(--c-accent));
+    text-decoration: underline;
+    text-decoration-color: rgb(var(--c-accent) / 0.4);
+    text-underline-offset: 0.2em;
+    transition: text-decoration-color 0.2s;
+}
+
+.link:hover {
+    text-decoration-color: rgb(var(--c-accent));
+}
+
+/* Section links (left column on desktop, top bar on phones) */
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.4rem 0.75rem;
+    border-radius: 0.75rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: rgb(var(--c-muted));
+    transition: color 0.2s, background-color 0.2s;
+}
+
+.nav-link::before {
+    content: "";
+    width: 1.25rem;
+    height: 2px;
+    border-radius: 2px;
+    background: currentColor;
+    opacity: 0.4;
+    transition: width 0.25s, opacity 0.25s;
+}
+
+.nav-link:hover {
+    color: rgb(var(--c-ink));
+}
+
+.nav-link[aria-current="true"] {
+    background: rgb(var(--c-soft));
+    color: rgb(var(--c-accent));
+    font-weight: 600;
+}
+
+.nav-link[aria-current="true"]::before {
+    width: 2rem;
+    opacity: 1;
+}
+
+.mobile-nav .nav-link {
+    flex: none;
+    padding: 0.4rem 0.9rem;
+    border-radius: 0.4rem;
+    white-space: nowrap;
+}
+
+.mobile-nav .nav-link::before {
+    display: none;
+}
+
+.mobile-nav ul {
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+}
+
+.mobile-nav ul::-webkit-scrollbar {
+    display: none;
+}
+
+/* Photo and figure frames. The placeholder shows until a real image exists in assets/. */
+.avatar-frame {
+    background: rgb(var(--c-soft));
+}
+
+.figure-frame {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: 0.5rem;
+    border: 1px solid rgb(var(--c-line));
+    background: rgb(var(--c-soft));
+}
+
+.figure-frame img {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.figure-placeholder {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    padding: 1rem;
+    text-align: center;
+    color: rgb(var(--c-muted));
+    background: rgb(var(--c-soft));
+}
+
+.figure-placeholder span {
+    max-width: 24rem;
+    font-size: 0.75rem;
+    line-height: 1.4;
+    color: rgb(var(--c-muted));
+}
+
+/* Timeline (education) */
+.timeline {
+    position: relative;
+    padding-left: 1.75rem;
+}
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    left: 0.4rem;
+    top: 0.5rem;
+    bottom: 0.5rem;
+    width: 2px;
+    background: linear-gradient(rgb(var(--c-accent)), rgb(var(--c-line)));
+}
+
+.timeline>li {
+    position: relative;
+}
+
+.timeline>li::before {
+    content: "";
+    position: absolute;
+    left: -1.75rem;
+    top: 1.35rem;
+    width: 0.95rem;
+    height: 0.95rem;
+    border: 3px solid rgb(var(--c-paper));
+    border-radius: 50%;
+    background: rgb(var(--c-accent));
+    box-shadow: 0 0 0 3px rgb(var(--c-accent) / 0.25);
+}
+
+/* Expandable details ("Read the full case study") */
+.more>summary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    list-style: none;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: rgb(var(--c-accent));
+}
+
+.more>summary::-webkit-details-marker {
+    display: none;
+}
+
+.more>summary::after {
+    content: "";
+    width: 0.45rem;
+    height: 0.45rem;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    transform: rotate(45deg) translateY(-2px);
+    transition: transform 0.2s;
+}
+
+.more[open]>summary::after {
+    transform: rotate(-135deg) translateY(-2px);
+}
+
+/* Icons drawn from the sprite in index.html */
+.i {
+    flex: none;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.75;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.i.b {
+    fill: currentColor;
+    stroke: none;
+}
+
+/* Thin scrollbar for the fixed left column on short screens */
+.profile {
+    scrollbar-width: thin;
+    scrollbar-color: rgb(var(--c-line)) transparent;
+}
+
+
+/* ---------- 5. Accessibility helpers and print ---------- */
+
+:focus-visible {
+    outline: 3px solid rgb(var(--c-accent));
+    outline-offset: 3px;
+    border-radius: 6px;
+}
+
+.skip-link {
+    position: absolute;
+    left: 1rem;
+    top: -4rem;
+    z-index: 100;
+    padding: 0.65rem 1rem;
+    border-radius: 0.75rem;
+    background: rgb(var(--c-ink));
+    font-weight: 600;
+    color: rgb(var(--c-paper));
+    transition: top 0.2s;
+}
+
+.skip-link:focus {
+    top: 1rem;
+}
+
+/* Headings that receive focus after a menu click should not show a ring */
+[tabindex="-1"]:focus {
+    outline: none;
+}
+
+
+/* .figure-frame {
+    max-height: 280px;
+    overflow: hidden;
+}
+
+.figure-frame img {
+    width: 100%;
+    height: 280px;
+    object-fit: contain;
+} */
+
+/* ---------- Responsive layout protection ---------- */
+
+html,
+body {
+    max-width: 100%;
+}
+
+body {
+    overflow-x: clip;
+}
+
+/* Allow grid and flex children to shrink within their containers */
+main,
+main>section,
+.profile {
+    min-width: 0;
+}
+
+/* Prevent images and other media from exceeding their containers */
+img,
+svg,
+video,
+iframe {
+    max-width: 100%;
+}
+
+
+
+
+@media print {
+
+    :root,
+    .dark {
+        --c-paper: 255 255 255;
+        --c-surface: 255 255 255;
+        --c-ink: 0 0 0;
+        --c-muted: 51 51 51;
+        --c-line: 153 153 153;
+        --c-accent: 0 0 0;
+        --c-on-accent: 255 255 255;
+        --c-soft: 238 238 238;
+        --c-warn: 0 0 0;
+        --c-warn-soft: 255 255 255;
+    }
+
+    .js body {
+        opacity: 1;
+    }
+
+    .ambient,
+    .mobile-nav,
+    .skip-link,
+    .no-print,
+    nav {
+        display: none !important;
+    }
+
+    .profile {
+        position: static !important;
+        height: auto !important;
+        overflow: visible !important;
+    }
+
+    .card {
+        backdrop-filter: none;
+        break-inside: avoid;
+    }
+
+    .js .reveal {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}
