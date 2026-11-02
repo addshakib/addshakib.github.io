@@ -78,11 +78,17 @@
     transition: opacity 0.35s ease;
 }
 
+
 html {
+    font-size: 87.5%;
+    /* 14px instead of 16px. Try 93.75% for a milder change */
     scroll-padding-top: 4.5rem;
     /* room for the sticky section bar on phones */
     -webkit-text-size-adjust: 100%;
 }
+
+
+
 
 @media (prefers-reduced-motion: no-preference) {
     html {
@@ -337,7 +343,7 @@ body {
 
 .figure-frame {
     position: relative;
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 21 / 9;
     overflow: hidden;
     border-radius: 0.5rem;
     border: 1px solid rgb(var(--c-line));
